@@ -1,6 +1,6 @@
 ﻿@page "/"
 
-<PageTitle>CSS Day</PageTitle>
+<PageTitle>@(root?.Event2024?.Title ?? "test")</PageTitle>
 
 <header class="hero">
     <svg xmlns="http://www.w3.org/2000/svg" width="539" height="336" viewBox="0 0 539 336" fill="none">
@@ -110,8 +110,8 @@
         <div class="custom-select">
             <button class="select-button" role="combobox" aria-labelledby="select button" aria-haspopup="listbox"
                 aria-expanded="false" aria-controls="select-dropdown">
-                <span>CSS Day</span>
-                 <span class="selected-value">YYYY<span class="arrow"></span></span>
+                 <span>CSS Day</span>
+                 <span class="selected-value">YYYY</span>
             </button>
             <ul class="select-dropdown" role="listbox" id="select-dropdown">
                 <li role="option">
@@ -198,7 +198,20 @@
     </div>
     <div>
         <article>
-            @(root?.Event2024?.Title ?? "test")
+            <a href="" target="_blank">
+                <div class="thumbnail-container" >
+                    <img class="thumbnail" src="https://cdn.pixabay.com/photo/2024/02/28/07/42/european-shorthair-8601492_640.jpg" />
+                </div>
+                <hr />
+                <div>
+                    <img class="avatar" src="https://forums-cdn.spongepowered.org/uploads/default/original/3X/d/8/d83589f82254cb84c405b77aca58745ac9d57436.png" />
+                    <div>
+                        <h3 class="talks-title">precentation title</h3>
+                        <p class="name">speaker name</p>
+                    </div>
+
+                </div>
+            </a>
         </article>
     </div>
 

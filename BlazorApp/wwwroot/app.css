@@ -10,6 +10,17 @@
     box-sizing: border-box;
 }
 
+h1,h2,h3,h4,h5,h6,p{
+    margin: unset;
+}
+h3{
+    font-size: 1.2rem;
+}
+
+p{
+    font-size: 1rem;
+}
+
 body {
     display: grid;
     grid-template-columns: [page-start] auto [spacing-start] 4rem [content-start] 1fr [content-end] 4rem [spacing-end] auto [page-end];
@@ -26,8 +37,8 @@ body {
     grid-template-columns: inherit;
     grid-column: page;
     grid-row-start: 1;
-    height: calc(100vh - 150px);
-    height: calc(100svh - 150px);
+    height: calc(100vh - 100px);
+    height: calc(100svh - 100px);
     min-height: 500px;
     padding: 5rem 0;
     position: relative;
@@ -92,17 +103,18 @@ select {
     font-size: 1.15rem;
     background-color: #fff;
     padding: 0.675em 1em;
-    border: 1px solid #caced1;
+    border: 1px solid #FFCE9F;
     border-radius: 0.25rem;
     cursor: pointer;
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr auto;
     align-items: center;
-    gap: 2rem;
+    gap: .5rem;
 }
 
 .selected-value {
-    text-align: left;
+    text-align: right;
+    width: 5rem;
 }
 
 .arrow {
@@ -205,8 +217,9 @@ nav .stats-dialog {
     align-items: center;
     justify-content: center;
     padding: .5rem;
-    border: unset;
+    border: 1px solid #FFCE9F;
     border-radius: 5px;
+    background-color: white;
 }
 
     nav .stats-dialog svg {
@@ -238,7 +251,6 @@ main {
     grid-template-columns: inherit;
     grid-template-rows: auto 1fr;
     grid-column: page;
-    height: 100vh;
     filter: drop-shadow(0 -6mm 6mm rgba(0, 0, 0, .5));
 }
 
@@ -252,6 +264,7 @@ main {
 .gap-container {
     height: 4rem;
     background-color: unset;
+    transform: translateY(1px);
 }
 
     .gap-container > div {
@@ -287,13 +300,75 @@ main {
     }
 
 article {
-    padding: 3rem 0;
+    padding: 50px 0 3rem 0;
     height: 100%;
     grid-column: content;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1rem;
+    height: fit-content;
 }
 
+    article a {
+        display: flex;
+        flex-direction: column;
+        border-radius: 5px;
+        overflow: hidden;
+        background-color: white;
+        text-decoration: none;
+        color: black;
+        box-shadow: 4px 0px 10px rgba(0, 0, 0, .25), 0px 0px 0px 1px rgba(0, 0, 0, .5);
+        transition: all .3s ease-in-out;
+    }
+
+    article a:is(:hover, :focus) {
+        color: black;
+        background-color: #ccc;
+    }
+
+        article a:is(:hover, :focus) .thumbnail {
+            transform: scale(1.1);
+        }
+
+    article a > div {
+        display: flex;
+        gap: 1rem;
+        padding: .5rem;
+    }
+
+    article a .thumbnail-container {
+        overflow: hidden;
+        padding: 0;
+        width: 100%;
+        aspect-ratio: 16/9;
+    }
+
+    article a .thumbnail {
+        width: 100%;
+        aspect-ratio: 16/9;
+        transition: all .3s ease-in-out;
+    }
+
+    article hr:not([size]) {
+        margin: 0;
+        height: 10px;
+        color: orange;
+    }
+
+
+
+    article a > div > div {
+        width: 100%;
+    }
+
+
+
+    article .avatar {
+        height: 3rem;
+        aspect-ratio: 1;
+        object-fit: cover;
+        border-radius: 5px;
+    }
 
 @media only screen and (min-width: 1264px) {
     body {
