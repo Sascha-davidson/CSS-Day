@@ -71,8 +71,7 @@
               "ViewState": "AQIAAKYAAAAAAAAAAAAAAMgAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-04-22T15:32:07.153Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
@@ -82,7 +81,7 @@
               "RelativeDocumentMoniker": "BlazorApp\\wwwroot\\app.css",
               "ToolTip": "C:\\Users\\sasch\\Documents\\GitHub\\CSS-Day\\BlazorApp\\wwwroot\\app.css",
               "RelativeToolTip": "BlazorApp\\wwwroot\\app.css",
-              "ViewState": "AQIAAPIAAAAAAAAAAAAmwAMBAAAnAAAA",
+              "ViewState": "AQIAAGYBAAAAAAAAAAAAAHQBAAAlAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
               "WhenOpened": "2024-04-22T15:30:42.929Z",
               "IsPinned": true,
@@ -99,8 +98,7 @@
               "ViewState": "AQIAAAkAAAAAAAAAAAAwwBsAAAA0AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
               "WhenOpened": "2024-04-22T15:45:08.436Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
@@ -111,8 +109,7 @@
               "ToolTip": "C:\\Users\\sasch\\Documents\\GitHub\\CSS-Day\\BlazorApp\\BlazorApp.csproj",
               "RelativeToolTip": "BlazorApp\\BlazorApp.csproj",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2024-04-22T19:59:29.941Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-22T19:59:29.941Z"
             },
             {
               "$type": "Document",
