@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "ndZtUOlfMph5zL5c3LFfsAlrBuYDw3LpI0M4WXTZFthMINgG6UjJMw19Zh+1bcToGn8gz+Lqpvf0PVvimj53vQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\sasch\\Documents\\GitHub\\CSS-Day\\BlazorApp\\BlazorApp.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\sasch\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
+    "C:\\Users\\sasch\\.nuget\\packages\\system.text.encodings.web\\8.0.0\\system.text.encodings.web.8.0.0.nupkg.sha512",
+    "C:\\Users\\sasch\\.nuget\\packages\\system.text.json\\8.0.3\\system.text.json.8.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
