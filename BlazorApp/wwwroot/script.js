@@ -1,12 +1,34 @@
-let DefaultSelect = document.querySelector(".default-select")
-let CustomSelect = document.querySelector(".Custom-select")
+const customSelect = document.querySelector(".custom-select");
+const selectBtn = document.querySelector(".select-button");
 
-if (typeof performAction === 'function') {
-    // JavaScript is active, so perform the action
-    DefaultSelect.setAttribute('hidden', '');
-    CustomSelect.removeAttribute('hidden');
-} else {
-    // JavaScript is not active (unlikely scenario), do nothing
-    // Alternatively, you can provide fallback content or display a message
-    console.log("JavaScript is not active.");
-}
+const selectedValue = document.querySelector(".selected-value");
+const optionsList = document.querySelectorAll(".select-dropdown li");
+
+// add click event to select button
+selectBtn.addEventListener("click", () => {
+    // add/remove active class on the container element
+    customSelect.classList.toggle("active");
+    // update the aria-expanded attribute based on the current state
+    selectBtn.setAttribute(
+        "aria-expanded",
+        selectBtn.getAttribute("aria-expanded") === "true" ? "false" : "true"
+    );
+});
+
+optionsList.forEach((option) => {
+    function handler(e) {
+        // Click Events
+        if (e.type === "click" && e.clientX !== 0 && e.clientY !== 0) {
+            selectedValue.textContent = this.children[1].textContent;
+            customSelect.classList.remove("active");
+        }
+        // Key Events
+        if (e.key === "Enter") {
+            selectedValue.textContent = this.textContent;
+            customSelect.classList.remove("active");
+        }
+    }
+
+    option.addEventListener("keyup", handler);
+    option.addEventListener("click", handler);
+});
