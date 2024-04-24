@@ -115,59 +115,59 @@
             </button>
             <ul class="select-dropdown" role="listbox" id="select-dropdown">
                 <li role="option">
-                    <input type="radio" id="2011" name="css day 2011" />
+                    <input type="radio" id="2011" name="css day" />
                     <label for="2011">2011</label>
                 </li>
                 <li role="option">
-                    <input type="radio" id="2012" name="css day 2012" />
+                    <input type="radio" id="2012" name="css day" />
                     <label for="2012">2012</label>
                 </li>
                 <li role="option">
-                    <input type="radio" id="2013" name="css day 2013" />
+                    <input type="radio" id="2013" name="css day" />
                     <label for="2013">2013</label>
                 </li>
                 <li role="option">
-                    <input type="radio" id="2014" name="css day 2014" />
+                    <input type="radio" id="2014" name="css day" />
                     <label for="2014">2014</label>
                 </li>
                 <li role="option">
-                    <input type="radio" id="2015" name="css day 2015" />
+                    <input type="radio" id="2015" name="css day" />
                     <label for="2015">2015</label>
                 </li>
                 <li role="option">
-                    <input type="radio" id="2016" name="css day 2016" />
+                    <input type="radio" id="2016" name="css day" />
                     <label for="2016">2016</label>
                 </li>
                 <li role="option">
-                    <input type="radio" id="2017" name="css day 2017" />
+                    <input type="radio" id="2017" name="css day" />
                     <label for="2017">2017</label>
                 </li>
                 <li role="option">
-                    <input type="radio" id="2018" name="css day 2018" />
+                    <input type="radio" id="2018" name="css day" />
                     <label for="2018">2018</label>
                 </li>
                 <li role="option">
-                    <input type="radio" id="2019" name="css day 2019" />
+                    <input type="radio" id="2019" name="css day" />
                     <label for="2019">2019</label>
                 </li>
                 <li role="option">
-                    <input type="radio" id="2020" name="css day 2020" />
+                    <input type="radio" id="2020" name="css day" />
                     <label for="2020">2020</label>
                 </li>
                 <li role="option">
-                    <input type="radio" id="2021" name="css day 2021" />
+                    <input type="radio" id="2021" name="css day" />
                     <label for="2021">2021</label>
                 </li>
                 <li role="option">
-                    <input type="radio" id="2022" name="css day 2022" />
+                    <input type="radio" id="2022" name="css day" />
                     <label for="2022">2022</label>
                 </li>
                 <li role="option">
-                    <input type="radio" id="2023" name="css day 2023" />
+                    <input type="radio" id="2023" name="css day" />
                     <label for="2023">2023</label>
                 </li>
                 <li role="option">
-                    <input type="radio" id="2024" name="css day 2024" />
+                    <input type="radio" id="2024" name="css day" />
                     <label for="2024">2024</label>
                 </li>
             </ul>
@@ -198,20 +198,31 @@
     </div>
     <div>
         <article>
-            <a href="" target="_blank">
+            
+            @foreach (var item in root?.Event2024?.Talks ?? [])
+            {
+                bool hasVideo = !bool.TryParse(item.Video.ToString(), out var _);
+
+               
+               <a href="@(item.Speakers.Count > 0 ? item.Speakers[0].Link : "default")" target="_blank">
                 <div class="thumbnail-container" >
-                    <img class="thumbnail" src="https://cdn.pixabay.com/photo/2024/02/28/07/42/european-shorthair-8601492_640.jpg" />
+                    <img class="thumbnail" src="@(hasVideo ? GetVideoDate(item.Video)?.Thumbnail : "default")" alt="speaker of css day"/>
                 </div>
                 <hr />
                 <div>
-                    <img class="avatar" src="https://forums-cdn.spongepowered.org/uploads/default/original/3X/d/8/d83589f82254cb84c405b77aca58745ac9d57436.png" />
+                    <img class="avatar" src="@(item.Speakers.Count > 0 ? item.Speakers[0].Avatar : "default")" />
                     <div>
-                        <h3 class="talks-title">precentation title</h3>
-                        <p class="name">speaker name</p>
+                        <h3 class="talks-title">@item.Title</h3>
+                        @if(item.Speakers.Count > 0)
+                        {
+                        <p class="name">@item.Speakers[0].Name</p>
+                        } else{
+                        <p class="name">geen data gevonden</p>
+                        }
                     </div>
-
                 </div>
-            </a>
+            </a> 
+            }
         </article>
     </div>
 

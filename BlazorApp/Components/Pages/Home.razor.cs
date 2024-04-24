@@ -19,5 +19,11 @@ namespace BlazorApp.Components.Pages
             var result = await response.Content.ReadAsStringAsync();
             root = JsonConvert.DeserializeObject<Root>(result);
         }
+
+
+        private Video? GetVideoDate(object data)
+        {
+            return data as Video;
+        }
     }
 }

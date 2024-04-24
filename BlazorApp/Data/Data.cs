@@ -90,8 +90,11 @@ public class Talk
     public string Description { get; set; }
 
     [JsonProperty("video")]
-    public bool Video { get; set; }
-}
+    public object Video { get; set; }
+
+    [JsonProperty("speaker")]
+    public List<Speaker> Speakers { get; set; }
+ }
 
 public class Event
 {
@@ -135,4 +138,29 @@ public class Root
     public Event Event2024 { get; set; }
 
 
+}
+
+
+public class Video
+{
+    [JsonProperty("youtube-id")]
+    public string YoutubeId { get; set; }
+
+    [JsonProperty("youtube-link")]
+    public string YoutubeLink { get; set; }
+
+    [JsonProperty("vimeo-id")]
+    public string VimeoId { get; set; }
+
+    [JsonProperty("vimeo-link")]
+    public string VimeoLink { get; set; }
+
+    [JsonProperty("thumbnail")]
+    public string Thumbnail { get; set; }
+
+    [JsonProperty("views")]
+    public int Views { get; set; }
+
+    [JsonProperty("likes")]
+    public int Likes { get; set; }
 }
