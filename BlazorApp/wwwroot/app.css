@@ -2,6 +2,7 @@
     --light-color: #f5f5f5;
     --dark-color: #050505;
     --primary-color: orange;
+    --hue: 0deg;
 }
 
 * {
@@ -10,14 +11,15 @@
     box-sizing: border-box;
 }
 
-h1,h2,h3,h4,h5,h6,p{
+h1, h2, h3, h4, h5, h6, p {
     margin: unset;
 }
-h3{
+
+h3 {
     font-size: 1.2rem;
 }
 
-p{
+p {
     font-size: 1rem;
 }
 
@@ -27,7 +29,7 @@ body {
     min-height: 100vh;
     min-height: 100svh;
     position: relative;
-    background-color: #FFCE9F;
+    background-color: var(--primary-color);
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
@@ -44,22 +46,207 @@ body {
     position: relative;
 }
 
-    .hero > * {
-        grid-column: content;
-    }
-
     .hero svg {
+        grid-column: content;
         width: 100%;
         max-width: 600px;
         height: auto;
+        z-index: 3;
     }
 
-    .hero > div {
+    .hero > .sphere-container {
         position: absolute;
-        height: 30vw;
-        width: 30vw;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        filter: blur(250px);
     }
 
+        .hero > .sphere-container > div {
+            position: absolute;
+            transform: translate(-50%, -50%);
+            height: 25vw;
+            width: 25vw;
+            background-color: hsl(var(--hue) 100% 50%);
+            border-radius: 100em;
+            --animation-speed: 30000ms;
+            --first-position: 16.6666666667%;
+        }
+
+            .hero > .sphere-container > div:nth-child(1) {
+                --hue: 0deg;
+                animation: Moving-Sphere-1 var(--animation-speed) infinite;
+            }
+
+@keyframes Moving-Sphere-1 {
+    0% {
+    }
+
+    16.6666666667% {
+    }
+
+    33.3333333334% {
+    }
+
+    50.0000000001% {
+    }
+
+    66.6666666668% {
+    }
+
+    83.3333333335% {
+    }
+
+    100% {
+    }
+}
+
+.hero > .sphere-container > div:nth-child(2) {
+    --hue: 60deg;
+    animation: Moving-Sphere-2 var(--animation-speed) infinite;
+}
+
+@keyframes Moving-Sphere-2 {
+    0% {
+    }
+
+    16.6666666667% {
+    }
+
+    33.3333333334% {
+    }
+
+    50.0000000001% {
+    }
+
+    66.6666666668% {
+    }
+
+    83.3333333335% {
+    }
+
+    100% {
+    }
+}
+
+.hero > .sphere-container > div:nth-child(3) {
+    --hue: 120deg;
+    animation: Moving-Sphere-3 var(--animation-speed) infinite;
+}
+
+@keyframes Moving-Sphere-3 {
+    0% {
+    }
+
+    16.6666666667% {
+    }
+
+    33.3333333334% {
+    }
+
+    50.0000000001% {
+    }
+
+    66.6666666668% {
+    }
+
+    83.3333333335% {
+    }
+
+    100% {
+    }
+}
+
+.hero > .sphere-container > div:nth-child(4) {
+    --hue: 180deg;
+    animation: Moving-Sphere-4 var(--animation-speed) infinite;
+}
+
+@keyframes Moving-Sphere-4 {
+    0% {
+    }
+
+    16.6666666667% {
+    }
+
+    33.3333333334% {
+    }
+
+    50.0000000001% {
+    }
+
+    66.6666666668% {
+    }
+
+    83.3333333335% {
+    }
+
+    100% {
+    }
+}
+
+.hero > .sphere-container > div:nth-child(5) {
+    --hue: 240deg;
+    animation: Moving-Sphere-5 var(--animation-speed) infinite;
+}
+
+@keyframes Moving-Sphere-5 {
+    0% {
+    }
+
+    16.6666666667% {
+    }
+
+    33.3333333334% {
+    }
+
+    50.0000000001% {
+    }
+
+    66.6666666668% {
+    }
+
+    83.3333333335% {
+    }
+
+    100% {
+    }
+}
+
+.hero > .sphere-container > div:nth-child(6) {
+    --hue: 300deg;
+    animation: Moving-Sphere-6 var(--animation-speed) infinite;
+}
+
+@keyframes Moving-Sphere-6 {
+    0% {
+    }
+
+    16.6666666667% {
+    }
+
+    33.3333333334% {
+    }
+
+    50.0000000001% {
+    }
+
+    66.6666666668% {
+    }
+
+    83.3333333335% {
+    }
+
+    100% {
+    }
+}
+
+@media (prefers-reduced-motion) {
+    .hero > .sphere-container > div {
+        animation: unset;
+    }
+}
 
 nav {
     display: inherit;
@@ -103,7 +290,7 @@ select {
     font-size: 1.15rem;
     background-color: #fff;
     padding: 0.675em 1em;
-    border: 1px solid #FFCE9F;
+    border: 2px solid var(--primary-color);
     border-radius: 0.25rem;
     cursor: pointer;
     display: grid;
@@ -154,14 +341,17 @@ select {
         align-items: center;
     }
 
-        .select-dropdown li label {
-            width: 100%;
-            padding: 8px 10px;
-            cursor: pointer;
-            display: flex;
-            justify-content: flex-end;
-            gap: 1rem;
-            align-items: center;
+    .select-dropdown button {
+        width: 100%;
+        text-align: right;
+        border: unset;
+        background-color: transparent;
+        padding: .5rem 5px;
+    }
+
+        .select-dropdown button:hover,
+        .select-dropdown button:focus {
+            background-color: #f2f2f2;
         }
 
     .select-dropdown::-webkit-scrollbar {
@@ -183,21 +373,6 @@ select {
             border-radius: 25px;
         }
 
-    .select-dropdown li:hover,
-    .select-dropdown input:checked ~ label {
-        background-color: #f2f2f2;
-    }
-
-    .select-dropdown input:focus ~ label {
-        background-color: #dfdfdf;
-    }
-
-    .select-dropdown input[type="radio"] {
-        position: absolute;
-        left: 0;
-        opacity: 0;
-    }
-
 /* interactivity */
 
 .custom-select.active .arrow {
@@ -217,7 +392,7 @@ nav .stats-dialog {
     align-items: center;
     justify-content: center;
     padding: .5rem;
-    border: 1px solid #FFCE9F;
+    border: 2px solid var(--primary-color);
     border-radius: 5px;
     background-color: white;
 }
@@ -310,8 +485,8 @@ article {
 }
 
     article a {
-        display: flex;
-        flex-direction: column;
+        display: inline-block; /* Change to inline-block */
+        width: 100%; /* Or specify a fixed width that matches the image size */
         border-radius: 5px;
         overflow: hidden;
         background-color: white;
@@ -322,38 +497,46 @@ article {
         overflow: hidden;
     }
 
-    article a:is(:hover, :focus) {
-        color: black;
-        background-color: #ccc;
-    }
-
-        article a:is(:hover, :focus) .thumbnail {
-            transform: scale(1.1);
+        article a:is(:hover, :focus) {
+            color: black;
+            background-color: #ccc;
         }
 
-    article a > div {
-        display: flex;
-        gap: 1rem;
-        padding: .5rem;
-    }
+            article a:is(:hover, :focus) .thumbnail {
+                transform: scale(1.1);
+            }
 
-    article a .thumbnail-container {
-        overflow: hidden;
-        padding: 0;
-        width: 100%;
-        aspect-ratio: 16/9;
-    }
+        article a > div {
+            display: flex;
+            gap: 1rem;
+            padding: .5rem;
+        }
 
-    article a .thumbnail {
-        width: 100%;
-        aspect-ratio: 16/9;
-        transition: all .3s ease-in-out;
-    }
+        article a .thumbnail-container {
+            display: block;
+            overflow: hidden;
+            padding: 0;
+            width: 100%;
+            aspect-ratio: 16/9;
+        }
+
+        article a .thumbnail {
+            width: 100%;
+            aspect-ratio: 16/9;
+            transition: all .3s ease-in-out;
+            background-color: var(--primary-color);
+        }
+
+            article a .thumbnail svg {
+                height: 100%;
+                width: 100%;
+                padding: 2rem;
+            }
 
     article hr:not([size]) {
         margin: 0;
         height: 10px;
-        color: orange;
+        color: var(--primary-color);
     }
 
 
@@ -378,7 +561,6 @@ article {
 
     article {
         grid-template-columns: 1fr 1fr;
-
     }
 }
 
@@ -389,7 +571,6 @@ article {
 
     article {
         grid-template-columns: 1fr 1fr 1fr;
-
     }
 }
 
