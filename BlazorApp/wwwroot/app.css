@@ -25,7 +25,7 @@ p {
 
 body {
     display: grid;
-    grid-template-columns: [page-start] auto [spacing-start] 1rem [content-start] 1fr [content-end] 1rem [spacing-end] auto [page-end];
+    grid-template-columns: [page-start] auto [spacing-start] 2rem [content-start] 1fr [content-end] 2rem [spacing-end] auto [page-end];
     min-height: 100vh;
     min-height: 100svh;
     position: relative;
@@ -39,8 +39,8 @@ body {
     grid-template-columns: inherit;
     grid-column: page;
     grid-row-start: 1;
-    height: calc(100vh - 100px);
-    height: calc(100svh - 100px);
+    height: calc(100vh - 74px);
+    height: calc(100svh - 74px);
     min-height: 500px;
     padding: 5rem 0;
     position: relative;
@@ -60,191 +60,242 @@ body {
         left: 0;
         bottom: 0;
         right: 0;
-        filter: blur(250px);
+                filter: blur(15vw);
+        overflow: hidden;
+        height: calc(100% + 4rem);
     }
 
         .hero > .sphere-container > div {
             position: absolute;
             transform: translate(-50%, -50%);
-            height: 25vw;
-            width: 25vw;
+            height: 40vw;
+            width: 40vw;
             background-color: hsl(var(--hue) 100% 50%);
             border-radius: 100em;
             --animation-speed: 30000ms;
-            --first-position: 16.6666666667%;
         }
 
             .hero > .sphere-container > div:nth-child(1) {
                 --hue: 0deg;
-                animation: Moving-Sphere-1 var(--animation-speed) infinite;
+                top: 30%;
+                left: 30%;
             }
 
-@keyframes Moving-Sphere-1 {
-    0% {
+            .hero > .sphere-container > div:nth-child(2) {
+                --hue: 60deg;
+                top: 10%;
+                left: 60%;
+            }
+
+            .hero > .sphere-container > div:nth-child(3) {
+                --hue: 120deg;
+                top: 50%;
+                left: 85%;
+            }
+
+            .hero > .sphere-container > div:nth-child(4) {
+                --hue: 180deg;
+                top: 100%;
+                left: 80%;
+            }
+
+            .hero > .sphere-container > div:nth-child(5) {
+                --hue: 240deg;
+                top: 85%;
+                left: 50%;
+            }
+
+            .hero > .sphere-container > div:nth-child(6) {
+                --hue: 300deg;
+                top: 60%;
+                left: 30%;
+            }
+
+@media (prefers-reduced-motion: no-preference) {
+    .hero > .sphere-container > div:nth-child(1) {
+        animation: Moving-Sphere-1 var(--animation-speed) infinite;
     }
 
-    16.6666666667% {
+    @keyframes Moving-Sphere-1 {
+        20% {
+            top: 0%;
+            left: 85%;
+        }
+
+        40% {
+            top: 85%;
+            left: 60%;
+        }
+
+        60% {
+            top: 60%;
+            left: 10%;
+        }
+
+        80% {
+            top: 50%;
+            left: 50%;
+        }
+
+        100% {
+            top: 30%;
+            left: 30%;
+        }
     }
 
-    33.3333333334% {
+    .hero > .sphere-container > div:nth-child(2) {
+        animation: Moving-Sphere-2 var(--animation-speed) infinite;
     }
 
-    50.0000000001% {
+    @keyframes Moving-Sphere-2 {
+        20% {
+            top: 55%;
+            left: 55%;
+        }
+
+        40% {
+            top: 95%;
+            left: 20%;
+        }
+
+        60% {
+            top: 20%;
+            left: 35%;
+        }
+
+        80% {
+            top: 10%;
+            left: 10%;
+        }
+
+        100% {
+            top: 10%;
+            left: 60%;
+        }
     }
 
-    66.6666666668% {
+    .hero > .sphere-container > div:nth-child(3) {
+        animation: Moving-Sphere-3 var(--animation-speed) infinite;
     }
 
-    83.3333333335% {
+    @keyframes Moving-Sphere-3 {
+        20% {
+            top: 95%;
+            left: 75%;
+        }
+
+        40% {
+            top: 50%;
+            left: 35%;
+        }
+
+        60% {
+            top: 0%;
+            left: 80%;
+        }
+
+        80% {
+            top: 95%;
+            left: 60%;
+        }
+
+        100% {
+            top: 50%;
+            left: 85%;
+        }
     }
 
-    100% {
-    }
-}
-
-.hero > .sphere-container > div:nth-child(2) {
-    --hue: 60deg;
-    animation: Moving-Sphere-2 var(--animation-speed) infinite;
-}
-
-@keyframes Moving-Sphere-2 {
-    0% {
+    .hero > .sphere-container > div:nth-child(4) {
+        animation: Moving-Sphere-4 var(--animation-speed) infinite;
     }
 
-    16.6666666667% {
+    @keyframes Moving-Sphere-4 {
+        20% {
+            top: 90%;
+            left: 35%;
+        }
+
+        40% {
+            top: 15%;
+            left: 5%;
+        }
+
+        60% {
+            top: 40%;
+            left: 55%;
+        }
+
+        80% {
+            top: 20%;
+            left: 75%;
+        }
+
+        100% {
+            top: 100%;
+            left: 80%;
+        }
     }
 
-    33.3333333334% {
+    .hero > .sphere-container > div:nth-child(5) {
+        animation: Moving-Sphere-5 var(--animation-speed) infinite;
     }
 
-    50.0000000001% {
+    @keyframes Moving-Sphere-5 {
+        20% {
+            top: 65%;
+            left: 15%;
+        }
+
+        40% {
+            top: 20%;
+            left: 55%;
+        }
+
+        60% {
+            top: 90%;
+            left: 90%;
+        }
+
+        80% {
+            top: 50%;
+            left: 100%;
+        }
+
+        100% {
+            top: 85%;
+            left: 50%;
+        }
     }
 
-    66.6666666668% {
+    .hero > .sphere-container > div:nth-child(6) {
+        animation: Moving-Sphere-6 var(--animation-speed) infinite;
     }
 
-    83.3333333335% {
-    }
+    @keyframes Moving-Sphere-6 {
+        20% {
+            top: 15%;
+            left: 35%;
+        }
 
-    100% {
-    }
-}
+        40% {
+            top: 40%;
+            left: 90%;
+        }
 
-.hero > .sphere-container > div:nth-child(3) {
-    --hue: 120deg;
-    animation: Moving-Sphere-3 var(--animation-speed) infinite;
-}
+        60% {
+            top: 90%;
+            left: 45%;
+        }
 
-@keyframes Moving-Sphere-3 {
-    0% {
-    }
+        80% {
+            top: 75%;
+            left: 25%;
+        }
 
-    16.6666666667% {
-    }
-
-    33.3333333334% {
-    }
-
-    50.0000000001% {
-    }
-
-    66.6666666668% {
-    }
-
-    83.3333333335% {
-    }
-
-    100% {
-    }
-}
-
-.hero > .sphere-container > div:nth-child(4) {
-    --hue: 180deg;
-    animation: Moving-Sphere-4 var(--animation-speed) infinite;
-}
-
-@keyframes Moving-Sphere-4 {
-    0% {
-    }
-
-    16.6666666667% {
-    }
-
-    33.3333333334% {
-    }
-
-    50.0000000001% {
-    }
-
-    66.6666666668% {
-    }
-
-    83.3333333335% {
-    }
-
-    100% {
-    }
-}
-
-.hero > .sphere-container > div:nth-child(5) {
-    --hue: 240deg;
-    animation: Moving-Sphere-5 var(--animation-speed) infinite;
-}
-
-@keyframes Moving-Sphere-5 {
-    0% {
-    }
-
-    16.6666666667% {
-    }
-
-    33.3333333334% {
-    }
-
-    50.0000000001% {
-    }
-
-    66.6666666668% {
-    }
-
-    83.3333333335% {
-    }
-
-    100% {
-    }
-}
-
-.hero > .sphere-container > div:nth-child(6) {
-    --hue: 300deg;
-    animation: Moving-Sphere-6 var(--animation-speed) infinite;
-}
-
-@keyframes Moving-Sphere-6 {
-    0% {
-    }
-
-    16.6666666667% {
-    }
-
-    33.3333333334% {
-    }
-
-    50.0000000001% {
-    }
-
-    66.6666666668% {
-    }
-
-    83.3333333335% {
-    }
-
-    100% {
-    }
-}
-
-@media (prefers-reduced-motion) {
-    .hero > .sphere-container > div {
-        animation: unset;
+        100% {
+            top: 60%;
+            left: 30%;
+        }
     }
 }
 
@@ -437,7 +488,7 @@ main {
     }
 
 .gap-container {
-    height: 4rem;
+    height: 2rem;
     background-color: unset;
     transform: translateY(1px);
 }
@@ -456,6 +507,7 @@ main {
         .gap-container .box-left > div:nth-child(2) {
             display: grid;
             clip-path: polygon(0 0, 0% 100%, 100% 100%);
+            aspect-ratio: 1;
         }
 
     .gap-container > .box-right {
@@ -468,108 +520,132 @@ main {
         .gap-container > .box-right > div:nth-child(1) {
             display: grid;
             clip-path: polygon(100% 0, 0% 100%, 100% 100%);
+            aspect-ratio: 1;
         }
 
     .gap-container > div > div {
         background-color: var(--light-color, #f5f5f5);
     }
 
-article {
+section {
     padding: 50px 0 3rem 0;
     height: 100%;
     grid-column: content;
     display: grid;
     grid-template-columns: 1fr;
-    gap: 1rem;
+    gap: 1.5rem;
     height: fit-content;
 }
 
-    article a {
-        display: inline-block; /* Change to inline-block */
-        width: 100%; /* Or specify a fixed width that matches the image size */
-        border-radius: 5px;
-        overflow: hidden;
-        background-color: white;
-        text-decoration: none;
-        color: black;
-        box-shadow: 4px 0px 10px rgba(0, 0, 0, .25), 0px 0px 0px 1px rgba(0, 0, 0, .5);
-        transition: all .3s ease-in-out;
-        overflow: hidden;
-    }
+.thumbnail-container {
+    display: block;
+    overflow: hidden;
+    padding: 0;
+    width: 100%;
+    aspect-ratio: 16/9;
+}
 
-        article a:is(:hover, :focus) {
-            color: black;
-            background-color: #ccc;
-        }
-
-            article a:is(:hover, :focus) .thumbnail {
-                transform: scale(1.1);
-            }
-
-        article a > div {
-            display: flex;
-            gap: 1rem;
-            padding: .5rem;
-        }
-
-        article a .thumbnail-container {
-            display: block;
-            overflow: hidden;
-            padding: 0;
-            width: 100%;
-            aspect-ratio: 16/9;
-        }
-
-        article a .thumbnail {
-            width: 100%;
-            aspect-ratio: 16/9;
-            transition: all .3s ease-in-out;
-            background-color: var(--primary-color);
-        }
-
-            article a .thumbnail svg {
-                height: 100%;
-                width: 100%;
-                padding: 2rem;
-            }
-
-    article hr:not([size]) {
-        margin: 0;
-        height: 10px;
-        color: var(--primary-color);
-    }
-
-
-
-    article a > div > div {
+    .thumbnail-container .thumbnail {
+        display: grid;
         width: 100%;
+        aspect-ratio: 16/9;
+        transition: all .3s ease-in-out;
+        background-color: var(--primary-color);
+    }
+
+    .thumbnail-container a {
+        background-color: unset;
+        cursor:
+    }
+
+    .thumbnail-container .thumbnail:is(:hover, :focus) {
+        transform: scale(1.1);
+        color: black;
+    }
+
+    .thumbnail-container a:is(:hover, :focus) {
+        cursor: url('play.svg'), pointer;
+    }
+
+    .thumbnail-container a:is(:hover, :focus) img {
+        opacity: .6;
+    }
+
+
+    .thumbnail-container img {
+        height: 100%;
+        width: 100%;
+        transition: all .3s ease-in-out;
+    }
+
+    .thumbnail-container svg {
+        height: 100%;
+        width: 100%;
+        padding: 2rem;
+    }
+
+section hr:not([size]) {
+    margin: 0;
+    height: 10px;
+    color: var(--primary-color);
+}
+
+section article {
+    display: grid;
+    grid-template-rows: auto auto 1fr;
+    border-radius: 5px;
+    overflow: hidden;
+    background-color: white;
+    text-decoration: none;
+    color: black;
+    box-shadow: 4px 0px 10px rgba(0, 0, 0, .25), 0px 0px 0px 1px rgba(0, 0, 0, .5);
+    transition: all .3s ease-in-out;
+    overflow: hidden;
+}
+
+section .Speakers {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem;
+    text-decoration: unset;
+    color: black;
+    height: 100%;
+}
+
+    section .Speakers:is(:hover, :focus) {
+        background-color: #e5e5e5;
     }
 
 
 
-    article .avatar {
-        height: 3rem;
-        aspect-ratio: 1;
-        object-fit: cover;
-        border-radius: 5px;
-    }
+section .avatar {
+    height: 3rem;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: 5px;
+}
 
 @media only screen and (min-width: 650px) {
     body {
-        grid-template-columns: [page-start] auto [spacing-start] 2rem [content-start] 1fr [content-end] 2rem [spacing-end] auto [page-end];
+        grid-template-columns: [page-start] auto [spacing-start] 4rem [content-start] 1fr [content-end] 4rem [spacing-end] auto [page-end];
     }
 
-    article {
+    .hero {
+        height: calc(100vh - 100px);
+        height: calc(100svh - 100px);
+    }
+
+    .gap-container {
+        height: 4rem;
+    }
+
+    section {
         grid-template-columns: 1fr 1fr;
     }
 }
 
-@media only screen and (min-width: 1264px) {
-    body {
-        grid-template-columns: [page-start] auto [spacing-start] 4rem [content-start] 1200px [content-end] 4rem [spacing-end] auto [page-end];
-    }
-
-    article {
+@media only screen and (min-width: 1000px) {
+    section {
         grid-template-columns: 1fr 1fr 1fr;
     }
 }

@@ -161,21 +161,22 @@
         </div>
     </div>
     <div>
-        <article>
+        <section>
             
             @foreach (var item in CurrentData?.Talks ?? [])
             {
                 bool hasVideo = !bool.TryParse(item.Video.ToString(), out var _);
 
-               
-               <a href="@(item.Speakers.Count > 0 ? item.Speakers[0].Link : "default")" target="_blank">
+               <article>
                 <div class="thumbnail-container" >
                         @if (hasVideo){
-                            <img class="thumbnail" src="@(hasVideo ? GetVideoDate(item.Video)?.Thumbnail : "default")" alt="speaker of css day"/>
+                        <a class="thumbnail" href="@(item.Speakers.Count > 0 ? item.Speakers[0].Link : "default")" target="_blank">
+                            <img src="@(hasVideo ? GetVideoDate(item.Video)?.Thumbnail : "default")" alt="speaker of css day"/>
+                        </a>
                         }else
                         {
-                            <div class="thumbnail">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="539" height="336" viewBox="0 0 539 336" fill="none">
+                        <div class="thumbnail">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="539" height="336" viewBox="0 0 539 336" fill="none">
         <path class="c-top"
             d="M155.379 0H6.14495C2.75119 0 0 2.75119 0 6.14495V34.2362C0 37.6299 2.75119 40.3811 6.14495 40.3811H155.379C158.773 40.3811 161.524 37.6299 161.524 34.2362V6.14495C161.524 2.75119 158.773 0 155.379 0Z"
             fill="white" />
@@ -252,11 +253,11 @@
             d="M483.269 295.378H401.629C398.235 295.378 395.484 298.129 395.484 301.523V329.614C395.484 333.008 398.235 335.759 401.629 335.759H483.269C486.662 335.759 489.414 333.008 489.414 329.614V301.523C489.414 298.129 486.662 295.378 483.269 295.378Z"
             fill="white" />
     </svg>
-                            </div>
+                        </div>
                         }
                 </div>
                 <hr />
-                <div>
+                <a class="Speakers" href="@(item.Speakers.Count > 0 ? item.Speakers[0].Link : "default")" target="_blank">
                     <img class="avatar" src="@(item.Speakers.Count > 0 ? item.Speakers[0].Avatar : "default")" />
                     <div>
                         <h3 class="talks-title">@item.Title</h3>
@@ -267,10 +268,10 @@
                         <p class="name">geen data gevonden</p>
                         }
                     </div>
-                </div>
-            </a> 
+                </a>
+            </article>
             }
-        </article>
+        </section>
     </div>
 
 </main>
