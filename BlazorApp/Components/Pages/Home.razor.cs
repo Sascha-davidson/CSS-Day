@@ -55,6 +55,7 @@ namespace BlazorApp.Components.Pages
             root = JsonConvert.DeserializeObject<Root>(result);
 
             ChartRef?.RenderAsync();
+            StateHasChanged();
         }
 
         public void SetYear(Year year)

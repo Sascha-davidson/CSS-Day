@@ -475,7 +475,7 @@
             <div>
                 <hr />
                 <div>
-                    <!--<img alt="" class="avatar" src="@(MC.Count > 0 ? MC.[0].Avatar : "default")" />-->
+                    <img alt="" class="avatar" src="@(mc?.Avatar ?? "default")" />
                     <p>
                         <b>
                             @mc.Name
