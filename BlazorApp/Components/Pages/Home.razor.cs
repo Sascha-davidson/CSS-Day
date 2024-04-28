@@ -1,4 +1,5 @@
-﻿using Microsoft.JSInterop;
+﻿using ApexCharts;
+using Microsoft.JSInterop;
 using Newtonsoft.Json;
 
 namespace BlazorApp.Components.Pages
@@ -9,13 +10,27 @@ namespace BlazorApp.Components.Pages
         protected Year SelectedYear = Year.year_2024;
         protected bool IsShowingDropDown = false;
 
+        public record ChartData(string Title, int Value);
+        public ApexChart<ChartData> ChartRef { get; set; }
+
+        public List<ChartData> Items => CurrentData?.Attendees?.countries?.Select(x => new ChartData(x.Key, x.Value)).ToList() ?? [];
+
+        private ApexChartOptions<ChartData> ChartOptions { get; set; } = new()
+        {
+            Legend = new Legend()
+            {
+                Show = false,
+            },
+        };
+
+
         protected Event? CurrentData => SelectedYear switch
         {
             Year.year_2024 => root?.Event2024,
             Year.year_2023 => root?.Event2023,
             Year.year_2022 => root?.Event2022,
-            Year.year_2021 => root?.Event2021,
-            Year.year_2020 => root?.Event2020,
+            //Year.year_2021 => root?.Event2021,
+            //Year.year_2020 => root?.Event2020,
             Year.year_2019 => root?.Event2019,
             Year.year_2018 => root?.Event2018,
             Year.year_2017 => root?.Event2017,
@@ -38,12 +53,17 @@ namespace BlazorApp.Components.Pages
 
             var result = await response.Content.ReadAsStringAsync();
             root = JsonConvert.DeserializeObject<Root>(result);
+
+            ChartRef?.RenderAsync();
         }
 
         public void SetYear(Year year)
         {
             SelectedYear = year;
             IsShowingDropDown = false;
+
+            ChartRef?.RenderAsync();
+
             StateHasChanged();
         }
 

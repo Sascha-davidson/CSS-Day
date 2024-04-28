@@ -13,56 +13,8 @@ public class Color
 
 public class AttendeesCountries
 {
-    [JsonProperty("NL")]
-    public int Netherlands { get; set; }
-
-    [JsonProperty("DE")]
-    public int Germany { get; set; }
-
-    [JsonProperty("FR")]
-    public int France { get; set; }
-
-    [JsonProperty("US")]
-    public int UnitedStates { get; set; }
-
-    [JsonProperty("UK")]
-    public int UnitedKingdom { get; set; }
-
-    [JsonProperty("BE")]
-    public int Belgium { get; set; }
-
-    [JsonProperty("NO")]
-    public int Norway { get; set; }
-
-    [JsonProperty("CA")]
-    public int Canada { get; set; }
-
-    [JsonProperty("SK")]
-    public int Slovakia { get; set; }
-
-    [JsonProperty("IL")]
-    public int Israel { get; set; }
-
-    [JsonProperty("ES")]
-    public int Spain { get; set; }
-
-    [JsonProperty("DK")]
-    public int Denmark { get; set; }
-
-    [JsonProperty("SE")]
-    public int Sweden { get; set; }
-
-    [JsonProperty("PL")]
-    public int Poland { get; set; }
-
-    [JsonProperty("EE")]
-    public int Estonia { get; set; }
-
-    [JsonProperty("AT")]
-    public int Austria { get; set; }
-
-    [JsonProperty("LB")]
-    public int Lebanon { get; set; }
+    public int count { get; set; }
+    public Dictionary<string, int> countries { get; set; }
 }
 
 public class Speaker
@@ -78,6 +30,12 @@ public class Speaker
 
     [JsonProperty("country")]
     public string Country { get; set; }
+}
+
+public class Mc : Speaker
+{
+    [JsonProperty("day")]
+    public List<int> Day { get; set; }
 }
 
 public class Talk
@@ -125,7 +83,7 @@ public class Event
     public AttendeesCountries Attendees { get; set; }
 
     [JsonProperty("mc")]
-    public List<Speaker> MC { get; set; }
+    public List<Mc> MC { get; set; }
 
     [JsonProperty("talks")]
     public List<Talk> Talks { get; set; }
@@ -212,10 +170,10 @@ public enum Year
     year_2023 = 1,
     [Display(Name = "2022")]
     year_2022 = 2,
-    [Display(Name = "2021")]
-    year_2021 = 3,
-    [Display(Name = "2020")]
-    year_2020 = 4,
+    //[Display(Name = "2021")]
+    //year_2021 = 3,
+    //[Display(Name = "2020")]
+    //year_2020 = 4,
     [Display(Name = "2019")]
     year_2019 = 5,
     [Display(Name = "2018")]

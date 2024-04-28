@@ -1,4 +1,5 @@
 ﻿@page "/"
+@using ApexCharts
 @rendermode InteractiveServer
 @inject IJSRuntime JSRuntime
 
@@ -469,23 +470,26 @@
 
     <section class="master-of-ceremonies">
         <h2>Master of Ceremonies</h2>
-        <div>
-            <hr />
+        @foreach(var mc in CurrentData?.MC ?? [])
+        {
             <div>
-                <img class="avatar" src="" />
-                <p>
-                    <b>
-                        Naam
-                    </b>
-                    <span>
-                        x Dagen
-                    </span>
-                </p>
+                <hr />
+                <div>
+                    <!--<img alt="" class="avatar" src="@(MC.Count > 0 ? MC.[0].Avatar : "default")" />-->
+                    <p>
+                        <b>
+                            @mc.Name
+                        </b>
+                        <span>
+                            @(mc.Day.Count) dagen
+                        </span>
+                    </p>
+                </div>
             </div>
-        </div>
+        }
     </section>
 
-    <section> 
+    <section class="talks"> 
         <h2>Talks</h2>
         @foreach (var item in CurrentData?.Talks ?? [])
         {
@@ -621,24 +625,37 @@
             </button>
         </header>
         <main>
+            <ApexChart TItem="ChartData"
+                    Title="" Options="ChartOptions" @ref=ChartRef>
+
+             <ApexPointSeries TItem="ChartData"
+                         Items="(Items)"
+                         SeriesType="SeriesType.Donut"
+                         Name="Countries"
+                         XValue="@(e => e.Title)"
+                         YAggregate="@(e => e.Sum(e => e.Value))"
+                         OrderByDescending="e=>e.Y" />
+         </ApexChart>
             <p>
                 <span>
                     <b>aanwezigen</b>
                 </span>
                 <span>
-                        <b>x bezoekers</b>
+                        <b>@(CurrentData?.Attendees?.count ?? 0) bezoekers</b>
                 </span>
             </p>
 
-            <p>
-                <span>
-                    NL
+            @foreach (var country in CurrentData?.Attendees?.countries ?? [])
+            {
+                <p>
+                    <span>
+                    @country.Key
                 </span>
                 <span>
-                    x bezoekers
+                    @country.Value bezoekers
                 </span>
             </p>
-
+            }
         </main>
         <footer>
             <button class="ghost" @onclick=@Close>Close</button>

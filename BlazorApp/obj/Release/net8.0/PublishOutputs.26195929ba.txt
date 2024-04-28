@@ -1,0 +1,16 @@
+C:\Users\sasch\Documents\GitHub\CSS-Day\BlazorApp\obj\Release\net8.0\PubTmp\Out\BlazorApp.exe
+C:\Users\sasch\Documents\GitHub\CSS-Day\BlazorApp\obj\Release\net8.0\PubTmp\Out\appsettings.Development.json
+C:\Users\sasch\Documents\GitHub\CSS-Day\BlazorApp\obj\Release\net8.0\PubTmp\Out\appsettings.json
+C:\Users\sasch\Documents\GitHub\CSS-Day\BlazorApp\obj\Release\net8.0\PubTmp\Out\BlazorApp.dll
+C:\Users\sasch\Documents\GitHub\CSS-Day\BlazorApp\obj\Release\net8.0\PubTmp\Out\BlazorApp.deps.json
+C:\Users\sasch\Documents\GitHub\CSS-Day\BlazorApp\obj\Release\net8.0\PubTmp\Out\BlazorApp.runtimeconfig.json
+C:\Users\sasch\Documents\GitHub\CSS-Day\BlazorApp\obj\Release\net8.0\PubTmp\Out\BlazorApp.pdb
+C:\Users\sasch\Documents\GitHub\CSS-Day\BlazorApp\obj\Release\net8.0\PubTmp\Out\Blazor-ApexCharts.dll
+C:\Users\sasch\Documents\GitHub\CSS-Day\BlazorApp\obj\Release\net8.0\PubTmp\Out\Microsoft.AspNetCore.Authorization.dll
+C:\Users\sasch\Documents\GitHub\CSS-Day\BlazorApp\obj\Release\net8.0\PubTmp\Out\Microsoft.AspNetCore.Components.dll
+C:\Users\sasch\Documents\GitHub\CSS-Day\BlazorApp\obj\Release\net8.0\PubTmp\Out\Microsoft.AspNetCore.Components.Forms.dll
+C:\Users\sasch\Documents\GitHub\CSS-Day\BlazorApp\obj\Release\net8.0\PubTmp\Out\Microsoft.AspNetCore.Components.Web.dll
+C:\Users\sasch\Documents\GitHub\CSS-Day\BlazorApp\obj\Release\net8.0\PubTmp\Out\Microsoft.AspNetCore.Metadata.dll
+C:\Users\sasch\Documents\GitHub\CSS-Day\BlazorApp\obj\Release\net8.0\PubTmp\Out\Microsoft.Extensions.Options.dll
+C:\Users\sasch\Documents\GitHub\CSS-Day\BlazorApp\obj\Release\net8.0\PubTmp\Out\Microsoft.JSInterop.dll
+C:\Users\sasch\Documents\GitHub\CSS-Day\BlazorApp\obj\Release\net8.0\PubTmp\Out\Newtonsoft.Json.dll

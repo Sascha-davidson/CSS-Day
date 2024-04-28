@@ -31,6 +31,7 @@ h1, h2, h3, h4, h5, h6, p {
 
 h2 {
     font-size: 3rem;
+    font-size: clamp(2rem, 10vw, 3rem);
 }
 
 h3 {
@@ -144,7 +145,7 @@ body {
     top: 0;
     left: 0;
     right: 0;
-    z-index: 2;
+    z-index: 5;
     pointer-events: none
 }
 
@@ -187,13 +188,13 @@ select {
     gap: .5rem;
 }
 
-.select-button:is(:hover, :focus) {
-    background-color: var(--background-weak-hover);
-}
+    .select-button:is(:hover, :focus) {
+        background-color: var(--background-weak-hover);
+    }
 
 .selected-value {
     text-align: right;
-    width: 5rem;
+    width: 3rem;
 }
 
 .arrow {
@@ -296,9 +297,9 @@ nav .stats-dialog {
         fill: var(--dark-color);
     }
 
-    nav .stats-dialog svg path {
-        fill: inherit;
-    }
+        nav .stats-dialog svg path {
+            fill: inherit;
+        }
 
 
 
@@ -354,64 +355,81 @@ section {
     height: 100%;
     grid-column: content;
     display: grid;
+    gap: 1.5rem;
+    height: fit-content;
+}
+
+    section hr:not([size]) {
+        margin: 0;
+        height: 10px;
+        color: var(--primary-color);
+    }
+
+.master-of-ceremonies {
+    grid-template-columns: 1fr;
+}
+
+    .master-of-ceremonies h2 {
+        grid-column: span 1;
+    }
+
+    .master-of-ceremonies > div {
+        display: grid;
+        grid-template-rows: auto 1fr;
+        grid-template-columns: auto 1fr;
+        border-radius: 5px;
+        background-color: var(--background-weak);
+        box-shadow: 4px 0px 10px rgba(0, 0, 0, .25), 0px 0px 0px 1px rgba(0, 0, 0, .5);
+        overflow: hidden;
+        column-gap: 1rem;
+    }
+
+        .master-of-ceremonies > div > div {
+            display: inherit;
+            grid-template-columns: subgrid;
+            padding: 1rem;
+        }
+
+        .master-of-ceremonies hr,
+        .master-of-ceremonies > div > div {
+            grid-column: span 2;
+        }
+
+    .master-of-ceremonies .avatar {
+        height: 5rem;
+    }
+
+    .master-of-ceremonies p {
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+        align-items: center;
+    }
+
+
+.talks {
+    height: 100%;
+    grid-column: content;
+    display: grid;
     grid-template-columns: 1fr;
     gap: 1.5rem;
     height: fit-content;
 }
 
-
-section h2 {
-    grid-column: span 3;
-}
-
-.master-of-ceremonies{
-    grid-template-columns: 1fr 1fr;
-}
-
-.master-of-ceremonies > div {
-    display: grid;
-    grid-template-rows: auto 1fr;
-    grid-template-columns: auto 1fr;
-    border-radius: 5px;
-    background-color: var(--background-weak);
-    box-shadow: 4px 0px 10px rgba(0, 0, 0, .25), 0px 0px 0px 1px rgba(0, 0, 0, .5);
-    overflow: hidden;
-    column-gap: 1rem;
-}
-
-.master-of-ceremonies > div > div {
-    display: inherit;
-    grid-template-columns: subgrid;
-    padding: 1rem;
-}
-
-    .master-of-ceremonies hr,
-    .master-of-ceremonies > div > div {
-        grid-column: span 2;
+    .talks h2 {
+        grid-column: span 1;
     }
 
-    .master-of-ceremonies .avatar {
-        height: 5rem;
+    .talks article {
+        display: grid;
+        grid-template-rows: auto auto 1fr;
+        border-radius: 5px;
+        background-color: var(--background-weak);
+        text-decoration: none;
+        box-shadow: 4px 0px 10px rgba(0, 0, 0, .25), 0px 0px 0px 1px rgba(0, 0, 0, .5);
+        transition: all .3s ease-in-out;
+        overflow: hidden;
     }
-    
-    .master-of-ceremonies p {
-    display: flex;
-    justify-content: space-between;
-    gap: 1rem;
-    align-items: center;
-}
-
-
-section article {
-    display: grid;
-    grid-template-rows: auto auto 1fr;
-    border-radius: 5px;
-    background-color: var(--background-weak);
-    text-decoration: none;
-    box-shadow: 4px 0px 10px rgba(0, 0, 0, .25), 0px 0px 0px 1px rgba(0, 0, 0, .5);
-    transition: all .3s ease-in-out;
-    overflow: hidden;
-}
 
 .thumbnail-container {
     display: block;
@@ -460,14 +478,6 @@ section article {
         padding: 2rem;
     }
 
-article hr:not([size]),
-.master-of-ceremonies hr:not([size]) {
-    margin: 0;
-    height: 10px;
-    color: var(--primary-color);
-}
-
-
 section .Speakers {
     display: flex;
     gap: 1rem;
@@ -491,22 +501,34 @@ article .avatar {
 }
 
 @media only screen and (min-width: 650px) {
-    .gap-container {
-        height: 4rem;
-    }
-
-    section {
+    .master-of-ceremonies {
         grid-template-columns: 1fr 1fr;
     }
+
+        .master-of-ceremonies h2 {
+            grid-column: span 2;
+        }
+
+    .talks {
+        grid-template-columns: 1fr 1fr;
+    }
+
+        .talks h2 {
+            grid-column: span 2;
+        }
 }
 
 @media only screen and (min-width: 1000px) {
-    section {
+    .talks {
         grid-template-columns: 1fr 1fr 1fr;
     }
+
+        .talks h2 {
+            grid-column: span 3;
+        }
 }
 
-@media only screen and (min-width: 1328px) {
+@media only screen and (min-width: 1346px) {
 
     body {
         grid-template-columns: [page-start] auto [spacing-start] 4rem [content-start] 1200px [content-end] 4rem [spacing-end] auto [page-end];
@@ -668,6 +690,7 @@ dialog header {
     align-items: center;
     justify-content: space-between;
     background-color: var(--background-weak);
+    z-index: 2;
 }
 
     dialog header .close {
@@ -716,7 +739,7 @@ dialog main {
     }
 
         dialog main > P:not(:last-child) {
-            border-bottom: 1px solid gray; 
+            border-bottom: 1px solid gray;
         }
 
         dialog main > P span:nth-child(2) {
@@ -731,15 +754,17 @@ dialog main {
         grid-template-columns: subgrid;
         padding: .5rem 0;
         border-bottom: 1px solid gray;
+        : not(:last-child)
 
-        : not(:last-child){
-            border: unset;
-        }
+{
+    border: unset;
+}
 
-        & span:nth-child(2) {
-            text-align: right;
-        }
-    }
+& span:nth-child(2) {
+    text-align: right;
+}
+
+}
 }
 
 

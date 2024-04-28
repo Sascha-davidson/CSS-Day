@@ -60,3 +60,11 @@ C:\Users\sasch\Documents\GitHub\CSS-Day\BlazorApp\obj\Debug\net8.0\ref\BlazorApp
 C:\Users\sasch\Documents\GitHub\CSS-Day\BlazorApp\bin\Debug\net8.0\Newtonsoft.Json.dll
 C:\Users\sasch\Documents\GitHub\CSS-Day\BlazorApp\obj\Debug\net8.0\BlazorApp.csproj.AssemblyReference.cache
 C:\Users\sasch\Documents\GitHub\CSS-Day\BlazorApp\obj\Debug\net8.0\BlazorApp.csproj.Up2Date
+C:\Users\sasch\Documents\GitHub\CSS-Day\BlazorApp\bin\Debug\net8.0\Blazor-ApexCharts.dll
+C:\Users\sasch\Documents\GitHub\CSS-Day\BlazorApp\bin\Debug\net8.0\Microsoft.AspNetCore.Authorization.dll
+C:\Users\sasch\Documents\GitHub\CSS-Day\BlazorApp\bin\Debug\net8.0\Microsoft.AspNetCore.Components.dll
+C:\Users\sasch\Documents\GitHub\CSS-Day\BlazorApp\bin\Debug\net8.0\Microsoft.AspNetCore.Components.Forms.dll
+C:\Users\sasch\Documents\GitHub\CSS-Day\BlazorApp\bin\Debug\net8.0\Microsoft.AspNetCore.Components.Web.dll
+C:\Users\sasch\Documents\GitHub\CSS-Day\BlazorApp\bin\Debug\net8.0\Microsoft.AspNetCore.Metadata.dll
+C:\Users\sasch\Documents\GitHub\CSS-Day\BlazorApp\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
+C:\Users\sasch\Documents\GitHub\CSS-Day\BlazorApp\bin\Debug\net8.0\Microsoft.JSInterop.dll
