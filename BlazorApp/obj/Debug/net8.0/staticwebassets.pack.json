@@ -21,6 +21,10 @@
       "PackagePath": "staticwebassets\\favicon.png"
     },
     {
+      "Id": "C:\\Users\\sasch\\Documents\\GitHub\\CSS-Day\\BlazorApp\\wwwroot\\play.svg",
+      "PackagePath": "staticwebassets\\play.svg"
+    },
+    {
       "Id": "C:\\Users\\sasch\\Documents\\GitHub\\CSS-Day\\BlazorApp\\wwwroot\\script.js",
       "PackagePath": "staticwebassets\\script.js"
     },

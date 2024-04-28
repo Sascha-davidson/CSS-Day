@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using Microsoft.JSInterop;
+using Newtonsoft.Json;
 
 namespace BlazorApp.Components.Pages
 {
@@ -24,8 +25,6 @@ namespace BlazorApp.Components.Pages
             Year.year_2013 => root?.Event2013,
             _ => root?.Event2024 // Default case if SelectedYear doesn't match any specific case
         };
-
-
 
         protected override async Task OnInitializedAsync()
         {
@@ -58,6 +57,16 @@ namespace BlazorApp.Components.Pages
         {
            var serialized =  JsonConvert.SerializeObject(data);
             return JsonConvert.DeserializeObject<Video>(serialized);
+        }
+
+        private async Task OpenDialog()
+        {
+            await JSRuntime.InvokeVoidAsync("eval", "openDialog()");
+        }
+
+        private async Task Close()
+        {
+            await JSRuntime.InvokeVoidAsync("eval", "closeDialog()");
         }
     }
 }

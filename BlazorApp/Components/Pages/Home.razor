@@ -1,7 +1,8 @@
 ﻿@page "/"
 @rendermode InteractiveServer
+@inject IJSRuntime JSRuntime
 
-<PageTitle>@(root?.Event2024?.Title ?? "test")</PageTitle>
+<PageTitle>@(root?.Event2024?.Title ?? "Loading")</PageTitle>
 
 @if (CurrentData != null)
 {
@@ -15,263 +16,632 @@
 <header class="hero">
     <svg xmlns="http://www.w3.org/2000/svg" width="539" height="336" viewBox="0 0 539 336" fill="none">
         <path class="c-top"
-            d="M155.379 0H6.14495C2.75119 0 0 2.75119 0 6.14495V34.2362C0 37.6299 2.75119 40.3811 6.14495 40.3811H155.379C158.773 40.3811 161.524 37.6299 161.524 34.2362V6.14495C161.524 2.75119 158.773 0 155.379 0Z"
-            fill="white" />
+              d="M155.379 0H6.14495C2.75119 0 0 2.75119 0 6.14495V34.2362C0 37.6299 2.75119 40.3811 6.14495 40.3811H155.379C158.773 40.3811 161.524 37.6299 161.524 34.2362V6.14495C161.524 2.75119 158.773 0 155.379 0Z"
+              fill="white" />
         <path class="c-left"
-            d="M34.2362 48.2817H6.14495C2.75119 48.2817 0 51.0329 0 54.4267V149.235C0 152.628 2.75119 155.379 6.14495 155.379H34.2362C37.6299 155.379 40.3811 152.628 40.3811 149.235V54.4267C40.3811 51.0329 37.6299 48.2817 34.2362 48.2817Z"
-            fill="white" />
+              d="M34.2362 48.2817H6.14495C2.75119 48.2817 0 51.0329 0 54.4267V149.235C0 152.628 2.75119 155.379 6.14495 155.379H34.2362C37.6299 155.379 40.3811 152.628 40.3811 149.235V54.4267C40.3811 51.0329 37.6299 48.2817 34.2362 48.2817Z"
+              fill="white" />
         <path class="c-bottom"
-            d="M155.379 114.998H56.1824C52.7886 114.998 50.0374 117.75 50.0374 121.143V149.235C50.0374 152.628 52.7886 155.38 56.1824 155.38H155.379C158.773 155.38 161.524 152.628 161.524 149.235V121.143C161.524 117.75 158.773 114.998 155.379 114.998Z"
-            fill="white" />
+              d="M155.379 114.998H56.1824C52.7886 114.998 50.0374 117.75 50.0374 121.143V149.235C50.0374 152.628 52.7886 155.38 56.1824 155.38H155.379C158.773 155.38 161.524 152.628 161.524 149.235V121.143C161.524 117.75 158.773 114.998 155.379 114.998Z"
+              fill="white" />
         <path class="s-1-left"
-            d="M222.761 0H194.669C191.276 0 188.524 2.75119 188.524 6.14495V90.4186C188.524 93.8123 191.276 96.5635 194.669 96.5635H222.761C226.154 96.5635 228.906 93.8123 228.906 90.4186V6.14495C228.906 2.75119 226.154 0 222.761 0Z"
-            fill="white" />
+              d="M222.761 0H194.669C191.276 0 188.524 2.75119 188.524 6.14495V90.4186C188.524 93.8123 191.276 96.5635 194.669 96.5635H222.761C226.154 96.5635 228.906 93.8123 228.906 90.4186V6.14495C228.906 2.75119 226.154 0 222.761 0Z"
+              fill="white" />
         <path class="s-1-top"
-            d="M343.904 0H243.829C240.435 0 237.684 2.75119 237.684 6.14495V34.2362C237.684 37.6299 240.435 40.3811 243.829 40.3811H343.904C347.298 40.3811 350.049 37.6299 350.049 34.2362V6.14495C350.049 2.75119 347.298 0 343.904 0Z"
-            fill="white" />
+              d="M343.904 0H243.829C240.435 0 237.684 2.75119 237.684 6.14495V34.2362C237.684 37.6299 240.435 40.3811 243.829 40.3811H343.904C347.298 40.3811 350.049 37.6299 350.049 34.2362V6.14495C350.049 2.75119 347.298 0 343.904 0Z"
+              fill="white" />
         <path class="s-1-center"
-            d="M291.233 57.0603H247.34C243.947 57.0603 241.195 59.8115 241.195 63.2053V91.2965C241.195 94.6902 243.947 97.4414 247.34 97.4414H291.233C294.627 97.4414 297.378 94.6902 297.378 91.2965V63.2053C297.378 59.8115 294.627 57.0603 291.233 57.0603Z"
-            fill="white" />
+              d="M291.233 57.0603H247.34C243.947 57.0603 241.195 59.8115 241.195 63.2053V91.2965C241.195 94.6902 243.947 97.4414 247.34 97.4414H291.233C294.627 97.4414 297.378 94.6902 297.378 91.2965V63.2053C297.378 59.8115 294.627 57.0603 291.233 57.0603Z"
+              fill="white" />
         <path class="s-1-right"
-            d="M343.904 57.0603H315.813C312.419 57.0603 309.668 59.8115 309.668 63.2053V149.235C309.668 152.628 312.419 155.38 315.813 155.38H343.904C347.298 155.38 350.049 152.628 350.049 149.235V63.2053C350.049 59.8115 347.298 57.0603 343.904 57.0603Z"
-            fill="white" />
+              d="M343.904 57.0603H315.813C312.419 57.0603 309.668 59.8115 309.668 63.2053V149.235C309.668 152.628 312.419 155.38 315.813 155.38H343.904C347.298 155.38 350.049 152.628 350.049 149.235V63.2053C350.049 59.8115 347.298 57.0603 343.904 57.0603Z"
+              fill="white" />
         <path class="s-1-bottom"
-            d="M294.744 114.998H194.669C191.276 114.998 188.524 117.75 188.524 121.143V149.235C188.524 152.628 191.276 155.38 194.669 155.38H294.744C298.138 155.38 300.889 152.628 300.889 149.235V121.143C300.889 117.75 298.138 114.998 294.744 114.998Z"
-            fill="white" />
+              d="M294.744 114.998H194.669C191.276 114.998 188.524 117.75 188.524 121.143V149.235C188.524 152.628 191.276 155.38 194.669 155.38H294.744C298.138 155.38 300.889 152.628 300.889 149.235V121.143C300.889 117.75 298.138 114.998 294.744 114.998Z"
+              fill="white" />
         <path class="s-2-left"
-            d="M411.285 0H383.194C379.8 0 377.049 2.75119 377.049 6.14495V90.4186C377.049 93.8123 379.8 96.5635 383.194 96.5635H411.285C414.679 96.5635 417.43 93.8123 417.43 90.4186V6.14495C417.43 2.75119 414.679 0 411.285 0Z"
-            fill="white" />
+              d="M411.285 0H383.194C379.8 0 377.049 2.75119 377.049 6.14495V90.4186C377.049 93.8123 379.8 96.5635 383.194 96.5635H411.285C414.679 96.5635 417.43 93.8123 417.43 90.4186V6.14495C417.43 2.75119 414.679 0 411.285 0Z"
+              fill="white" />
         <path class="s-2-top"
-            d="M532.428 0H432.353C428.96 0 426.208 2.75119 426.208 6.14495V34.2362C426.208 37.6299 428.96 40.3811 432.353 40.3811H532.428C535.822 40.3811 538.573 37.6299 538.573 34.2362V6.14495C538.573 2.75119 535.822 0 532.428 0Z"
-            fill="white" />
+              d="M532.428 0H432.353C428.96 0 426.208 2.75119 426.208 6.14495V34.2362C426.208 37.6299 428.96 40.3811 432.353 40.3811H532.428C535.822 40.3811 538.573 37.6299 538.573 34.2362V6.14495C538.573 2.75119 535.822 0 532.428 0Z"
+              fill="white" />
         <path class="s-2-center"
-            d="M479.757 57.0603H435.865C432.471 57.0603 429.72 59.8115 429.72 63.2053V91.2965C429.72 94.6902 432.471 97.4414 435.865 97.4414H479.757C483.151 97.4414 485.902 94.6902 485.902 91.2965V63.2053C485.902 59.8115 483.151 57.0603 479.757 57.0603Z"
-            fill="white" />
+              d="M479.757 57.0603H435.865C432.471 57.0603 429.72 59.8115 429.72 63.2053V91.2965C429.72 94.6902 432.471 97.4414 435.865 97.4414H479.757C483.151 97.4414 485.902 94.6902 485.902 91.2965V63.2053C485.902 59.8115 483.151 57.0603 479.757 57.0603Z"
+              fill="white" />
         <path class="s-2-right"
-            d="M532.428 57.0603H504.337C500.943 57.0603 498.192 59.8115 498.192 63.2053V149.235C498.192 152.628 500.943 155.38 504.337 155.38H532.428C535.822 155.38 538.573 152.628 538.573 149.235V63.2053C538.573 59.8115 535.822 57.0603 532.428 57.0603Z"
-            fill="white" />
+              d="M532.428 57.0603H504.337C500.943 57.0603 498.192 59.8115 498.192 63.2053V149.235C498.192 152.628 500.943 155.38 504.337 155.38H532.428C535.822 155.38 538.573 152.628 538.573 149.235V63.2053C538.573 59.8115 535.822 57.0603 532.428 57.0603Z"
+              fill="white" />
         <path class="s-2-bottom"
-            d="M483.269 114.998H383.194C379.8 114.998 377.049 117.75 377.049 121.143V149.235C377.049 152.628 379.8 155.38 383.194 155.38H483.269C486.663 155.38 489.414 152.628 489.414 149.235V121.143C489.414 117.75 486.663 114.998 483.269 114.998Z"
-            fill="white" />
+              d="M483.269 114.998H383.194C379.8 114.998 377.049 117.75 377.049 121.143V149.235C377.049 152.628 379.8 155.38 383.194 155.38H483.269C486.663 155.38 489.414 152.628 489.414 149.235V121.143C489.414 117.75 486.663 114.998 483.269 114.998Z"
+              fill="white" />
         <path class="d-top"
-            d="M105.342 180.38H6.14495C2.75119 180.38 0 183.131 0 186.524V214.616C0 218.009 2.75119 220.761 6.14495 220.761H105.342C108.736 220.761 111.487 218.009 111.487 214.616V186.524C111.487 183.131 108.736 180.38 105.342 180.38Z"
-            fill="white" />
+              d="M105.342 180.38H6.14495C2.75119 180.38 0 183.131 0 186.524V214.616C0 218.009 2.75119 220.761 6.14495 220.761H105.342C108.736 220.761 111.487 218.009 111.487 214.616V186.524C111.487 183.131 108.736 180.38 105.342 180.38Z"
+              fill="white" />
         <path class="d-right"
-            d="M155.379 180.38H127.288C123.894 180.38 121.143 183.131 121.143 186.524V281.332C121.143 284.726 123.894 287.477 127.288 287.477H155.379C158.773 287.477 161.524 284.726 161.524 281.332V186.524C161.524 183.131 158.773 180.38 155.379 180.38Z"
-            fill="white" />
+              d="M155.379 180.38H127.288C123.894 180.38 121.143 183.131 121.143 186.524V281.332C121.143 284.726 123.894 287.477 127.288 287.477H155.379C158.773 287.477 161.524 284.726 161.524 281.332V186.524C161.524 183.131 158.773 180.38 155.379 180.38Z"
+              fill="white" />
         <path class="d-left"
-            d="M34.2362 228.661H6.14495C2.75119 228.661 0 231.412 0 234.806V329.614C0 333.008 2.75119 335.759 6.14495 335.759H34.2362C37.6299 335.759 40.3811 333.008 40.3811 329.614V234.806C40.3811 231.412 37.6299 228.661 34.2362 228.661Z"
-            fill="white" />
+              d="M34.2362 228.661H6.14495C2.75119 228.661 0 231.412 0 234.806V329.614C0 333.008 2.75119 335.759 6.14495 335.759H34.2362C37.6299 335.759 40.3811 333.008 40.3811 329.614V234.806C40.3811 231.412 37.6299 228.661 34.2362 228.661Z"
+              fill="white" />
         <path class="d-bottom"
-            d="M155.379 295.378H56.1824C52.7886 295.378 50.0374 298.129 50.0374 301.523V329.614C50.0374 333.008 52.7886 335.759 56.1824 335.759H155.379C158.773 335.759 161.524 333.008 161.524 329.614V301.523C161.524 298.129 158.773 295.378 155.379 295.378Z"
-            fill="white" />
+              d="M155.379 295.378H56.1824C52.7886 295.378 50.0374 298.129 50.0374 301.523V329.614C50.0374 333.008 52.7886 335.759 56.1824 335.759H155.379C158.773 335.759 161.524 333.008 161.524 329.614V301.523C161.524 298.129 158.773 295.378 155.379 295.378Z"
+              fill="white" />
         <path class="a-top"
-            d="M294.744 180.38H194.669C191.276 180.38 188.524 183.131 188.524 186.524V214.616C188.524 218.009 191.276 220.761 194.669 220.761H294.744C298.138 220.761 300.889 218.009 300.889 214.616V186.524C300.889 183.131 298.138 180.38 294.744 180.38Z"
-            fill="white" />
+              d="M294.744 180.38H194.669C191.276 180.38 188.524 183.131 188.524 186.524V214.616C188.524 218.009 191.276 220.761 194.669 220.761H294.744C298.138 220.761 300.889 218.009 300.889 214.616V186.524C300.889 183.131 298.138 180.38 294.744 180.38Z"
+              fill="white" />
         <path class="a-right"
-            d="M343.904 180.38H315.813C312.419 180.38 309.668 183.131 309.668 186.524V329.614C309.668 333.008 312.419 335.759 315.813 335.759H343.904C347.298 335.759 350.049 333.008 350.049 329.614V186.524C350.049 183.131 347.298 180.38 343.904 180.38Z"
-            fill="white" />
+              d="M343.904 180.38H315.813C312.419 180.38 309.668 183.131 309.668 186.524V329.614C309.668 333.008 312.419 335.759 315.813 335.759H343.904C347.298 335.759 350.049 333.008 350.049 329.614V186.524C350.049 183.131 347.298 180.38 343.904 180.38Z"
+              fill="white" />
         <path class="a-left"
-            d="M222.761 228.661H194.669C191.276 228.661 188.524 231.412 188.524 234.806V329.614C188.524 333.008 191.276 335.759 194.669 335.759H222.761C226.154 335.759 228.906 333.008 228.906 329.614V234.806C228.906 231.412 226.154 228.661 222.761 228.661Z"
-            fill="white" />
+              d="M222.761 228.661H194.669C191.276 228.661 188.524 231.412 188.524 234.806V329.614C188.524 333.008 191.276 335.759 194.669 335.759H222.761C226.154 335.759 228.906 333.008 228.906 329.614V234.806C228.906 231.412 226.154 228.661 222.761 228.661Z"
+              fill="white" />
         <path class="a-center"
-            d="M293.866 245.34H249.974C246.58 245.34 243.829 248.092 243.829 251.485V279.577C243.829 282.97 246.58 285.722 249.974 285.722H293.866C297.26 285.722 300.011 282.97 300.011 279.577V251.485C300.011 248.092 297.26 245.34 293.866 245.34Z"
-            fill="white" />
+              d="M293.866 245.34H249.974C246.58 245.34 243.829 248.092 243.829 251.485V279.577C243.829 282.97 246.58 285.722 249.974 285.722H293.866C297.26 285.722 300.011 282.97 300.011 279.577V251.485C300.011 248.092 297.26 245.34 293.866 245.34Z"
+              fill="white" />
         <path class="y-left"
-            d="M411.285 180.38H383.194C379.8 180.38 377.049 183.131 377.049 186.524V270.798C377.049 274.192 379.8 276.943 383.194 276.943H411.285C414.679 276.943 417.43 274.192 417.43 270.798V186.524C417.43 183.131 414.679 180.38 411.285 180.38Z"
-            fill="white" />
+              d="M411.285 180.38H383.194C379.8 180.38 377.049 183.131 377.049 186.524V270.798C377.049 274.192 379.8 276.943 383.194 276.943H411.285C414.679 276.943 417.43 274.192 417.43 270.798V186.524C417.43 183.131 414.679 180.38 411.285 180.38Z"
+              fill="white" />
         <path class="y-right"
-            d="M532.428 180.38H504.337C500.943 180.38 498.192 183.131 498.192 186.524V329.614C498.192 333.008 500.943 335.759 504.337 335.759H532.428C535.822 335.759 538.573 333.008 538.573 329.614V186.524C538.573 183.131 535.822 180.38 532.428 180.38Z"
-            fill="white" />
+              d="M532.428 180.38H504.337C500.943 180.38 498.192 183.131 498.192 186.524V329.614C498.192 333.008 500.943 335.759 504.337 335.759H532.428C535.822 335.759 538.573 333.008 538.573 329.614V186.524C538.573 183.131 535.822 180.38 532.428 180.38Z"
+              fill="white" />
         <path class="y-center"
-            d="M483.269 236.562H439.376C435.982 236.562 433.231 239.313 433.231 242.707V270.798C433.231 274.192 435.982 276.943 439.376 276.943H483.269C486.663 276.943 489.414 274.192 489.414 270.798V242.707C489.414 239.313 486.663 236.562 483.269 236.562Z"
-            fill="white" />
+              d="M483.269 236.562H439.376C435.982 236.562 433.231 239.313 433.231 242.707V270.798C433.231 274.192 435.982 276.943 439.376 276.943H483.269C486.663 276.943 489.414 274.192 489.414 270.798V242.707C489.414 239.313 486.663 236.562 483.269 236.562Z"
+              fill="white" />
         <path class="y-bottom"
-            d="M483.269 295.378H401.629C398.235 295.378 395.484 298.129 395.484 301.523V329.614C395.484 333.008 398.235 335.759 401.629 335.759H483.269C486.662 335.759 489.414 333.008 489.414 329.614V301.523C489.414 298.129 486.662 295.378 483.269 295.378Z"
-            fill="white" />
+              d="M483.269 295.378H401.629C398.235 295.378 395.484 298.129 395.484 301.523V329.614C395.484 333.008 398.235 335.759 401.629 335.759H483.269C486.662 335.759 489.414 333.008 489.414 329.614V301.523C489.414 298.129 486.662 295.378 483.269 295.378Z"
+              fill="white" />
     </svg>
-    <div class="sphere-container">
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
+
+    <div class="hexagon-container">
+        <div class="row">
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+        </div>
+
+        <div class="row">
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+        </div>
+
+        <div class="row">
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+        </div>
+        <div class="row">
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+        </div>
+        <div class="row">
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+        </div>
+        <div class="row">
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+        </div>
+        <div class="row">
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+        </div>
     </div>
+
 </header>
 
-<nav>
+<nav class="primary-nav">
     <div class="nav-items">
-        <select class="default-select" hidden>
-            <option>css day 2011</option>
-            <option>css day 2012</option>
-            <option>css day 2013</option>
-            <option>css day 2014</option>
-            <option>css day 2015</option>
-            <option>css day 2016</option>
-            <option>css day 2017</option>
-            <option>css day 2018</option>
-            <option>css day 2019</option>
-            <option>css day 2020</option>
-            <option>css day 2021</option>
-            <option>css day 2022</option>
-            <option>css day 2023</option>
-            <option>css day 2024</option>
-
-        </select>
-
         <div class="custom-select @(IsShowingDropDown ? "active" : "")">
             <button @onclick=@(ToggleDropDown) class="select-button" role="combobox" aria-labelledby="select button" aria-haspopup="listbox"
-                aria-expanded="@(IsShowingDropDown.ToString().ToLower())" aria-controls="select-dropdown">
-                 <span>CSS Day</span>
-                 <span class="selected-value">YYYY</span>
+                    aria-expanded="@(IsShowingDropDown.ToString().ToLower())" aria-controls="select-dropdown">
+                <span>CSS Day</span>
+                <span class="selected-value">@(SelectedYear.ToString().Replace("year_", ""))</span>
             </button>
-            
+
             <ul class="select-dropdown" role="listbox" id="select-dropdown">
-            @foreach(var year in Enum.GetValues <Year>())
-            {
-                <li role="option">
-                    <button  @onclick=@(() => SetYear(year))>@(year.ToString().Replace("year_", ""))</button>
-                </li>
-            }    
+                @foreach (var year in Enum.GetValues<Year>())
+                {
+                    <li role="option">
+                        <button @onclick=@(() => SetYear(year))>@(year.ToString().Replace("year_", ""))</button>
+                    </li>
+                }
             </ul>
         </div>
-        <button class="stats-dialog">
+        <button class="stats-dialog" @onclick=@((() => OpenDialog()))>
             <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28" fill="none">
-                <path
-                    d="M11.375 26.25C8.82229 26.25 6.37414 25.2359 4.5691 23.4309C2.76406 21.6259 1.75 19.1777 1.75 16.625C1.75 14.0723 2.76406 11.6241 4.5691 9.8191C6.37414 8.01406 8.82229 7 11.375 7C11.6071 7 11.8296 7.09219 11.9937 7.25628C12.1578 7.42038 12.25 7.64294 12.25 7.875V15.75H20.125C20.3571 15.75 20.5796 15.8422 20.7437 16.0063C20.9078 16.1704 21 16.3929 21 16.625C21 19.1777 19.9859 21.6259 18.1809 23.4309C16.3759 25.2359 13.9277 26.25 11.375 26.25ZM10.5 8.8025C9.02581 8.96652 7.62791 9.54355 6.46726 10.4671C5.30661 11.3907 4.43041 12.6234 3.93953 14.0231C3.44865 15.4228 3.36307 16.9327 3.69262 18.3789C4.02218 19.8251 4.75348 21.1488 5.80233 22.1977C6.85117 23.2465 8.17491 23.9778 9.62112 24.3074C11.0673 24.6369 12.5772 24.5513 13.9769 24.0605C15.3766 23.5696 16.6093 22.6934 17.5329 21.5327C18.4565 20.3721 19.0335 18.9742 19.1975 17.5H12.25C11.7859 17.5 11.3408 17.3156 11.0126 16.9874C10.6844 16.6592 10.5 16.2141 10.5 15.75V8.8025Z"
-                    fill="black" />
-                <path
-                    d="M24.5 12.25H16.625C16.1609 12.25 15.7158 12.0656 15.3876 11.7374C15.0594 11.4092 14.875 10.9641 14.875 10.5V2.625C14.875 2.39294 14.9672 2.17038 15.1313 2.00628C15.2954 1.84219 15.5179 1.75 15.75 1.75C18.3027 1.75 20.7509 2.76406 22.5559 4.5691C24.3609 6.37414 25.375 8.82229 25.375 11.375C25.375 11.6071 25.2828 11.8296 25.1187 11.9937C24.9546 12.1578 24.7321 12.25 24.5 12.25ZM16.625 10.5H23.5725C23.3734 8.72596 22.5774 7.07221 21.3151 5.8099C20.0528 4.54758 18.399 3.75162 16.625 3.5525V10.5Z"
-                    fill="black" />
+                <path d="M11.375 26.25C8.82229 26.25 6.37414 25.2359 4.5691 23.4309C2.76406 21.6259 1.75 19.1777 1.75 16.625C1.75 14.0723 2.76406 11.6241 4.5691 9.8191C6.37414 8.01406 8.82229 7 11.375 7C11.6071 7 11.8296 7.09219 11.9937 7.25628C12.1578 7.42038 12.25 7.64294 12.25 7.875V15.75H20.125C20.3571 15.75 20.5796 15.8422 20.7437 16.0063C20.9078 16.1704 21 16.3929 21 16.625C21 19.1777 19.9859 21.6259 18.1809 23.4309C16.3759 25.2359 13.9277 26.25 11.375 26.25ZM10.5 8.8025C9.02581 8.96652 7.62791 9.54355 6.46726 10.4671C5.30661 11.3907 4.43041 12.6234 3.93953 14.0231C3.44865 15.4228 3.36307 16.9327 3.69262 18.3789C4.02218 19.8251 4.75348 21.1488 5.80233 22.1977C6.85117 23.2465 8.17491 23.9778 9.62112 24.3074C11.0673 24.6369 12.5772 24.5513 13.9769 24.0605C15.3766 23.5696 16.6093 22.6934 17.5329 21.5327C18.4565 20.3721 19.0335 18.9742 19.1975 17.5H12.25C11.7859 17.5 11.3408 17.3156 11.0126 16.9874C10.6844 16.6592 10.5 16.2141 10.5 15.75V8.8025Z"
+                      fill="black" />
+                <path d="M24.5 12.25H16.625C16.1609 12.25 15.7158 12.0656 15.3876 11.7374C15.0594 11.4092 14.875 10.9641 14.875 10.5V2.625C14.875 2.39294 14.9672 2.17038 15.1313 2.00628C15.2954 1.84219 15.5179 1.75 15.75 1.75C18.3027 1.75 20.7509 2.76406 22.5559 4.5691C24.3609 6.37414 25.375 8.82229 25.375 11.375C25.375 11.6071 25.2828 11.8296 25.1187 11.9937C24.9546 12.1578 24.7321 12.25 24.5 12.25ZM16.625 10.5H23.5725C23.3734 8.72596 22.5774 7.07221 21.3151 5.8099C20.0528 4.54758 18.399 3.75162 16.625 3.5525V10.5Z"
+                      fill="black" />
             </svg>
-        </button 
+        </button>
     </div>
 </nav>
-<main>
-    <div class="gap-container">
-        <div class="box-left">
-            <div></div>
-            <div class="path-left"></div>
-        </div>
-
-        <div class="box-right">
-            <div class="path-right"></div>
-            <div></div>
+<main class="prymary-main">
+    <div class="hexagon-container">
+        <div class="row">
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
         </div>
     </div>
-    <div>
-        <section>
-            
-            @foreach (var item in CurrentData?.Talks ?? [])
-            {
-                bool hasVideo = !bool.TryParse(item.Video.ToString(), out var _);
 
-               <article>
-                <div class="thumbnail-container" >
-                        @if (hasVideo){
-                        <a class="thumbnail" href="@(item.Speakers.Count > 0 ? item.Speakers[0].Link : "default")" target="_blank">
-                            <img src="@(hasVideo ? GetVideoDate(item.Video)?.Thumbnail : "default")" alt="speaker of css day"/>
+    <section class="master-of-ceremonies">
+        <h2>Master of Ceremonies</h2>
+        <div>
+            <hr />
+            <div>
+                <img class="avatar" src="" />
+                <p>
+                    <b>
+                        Naam
+                    </b>
+                    <span>
+                        x Dagen
+                    </span>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section> 
+        <h2>Talks</h2>
+        @foreach (var item in CurrentData?.Talks ?? [])
+        {
+            bool hasVideo = !bool.TryParse(item.Video.ToString(), out var _);
+
+            <article>
+                <div class="thumbnail-container">
+                    @if (hasVideo)
+                    {
+                        <a class="thumbnail" href="@(hasVideo ? GetVideoDate(item.Video)?.VimeoLink : "default")" target="_blank">
+                            <img src="@(hasVideo ? GetVideoDate(item.Video)?.Thumbnail : "default")" alt="speaker of css day" />
                         </a>
-                        }else
-                        {
+                    }
+                    else
+                    {
                         <div class="thumbnail">
                             <svg xmlns="http://www.w3.org/2000/svg" width="539" height="336" viewBox="0 0 539 336" fill="none">
-        <path class="c-top"
-            d="M155.379 0H6.14495C2.75119 0 0 2.75119 0 6.14495V34.2362C0 37.6299 2.75119 40.3811 6.14495 40.3811H155.379C158.773 40.3811 161.524 37.6299 161.524 34.2362V6.14495C161.524 2.75119 158.773 0 155.379 0Z"
-            fill="white" />
-        <path class="c-left"
-            d="M34.2362 48.2817H6.14495C2.75119 48.2817 0 51.0329 0 54.4267V149.235C0 152.628 2.75119 155.379 6.14495 155.379H34.2362C37.6299 155.379 40.3811 152.628 40.3811 149.235V54.4267C40.3811 51.0329 37.6299 48.2817 34.2362 48.2817Z"
-            fill="white" />
-        <path class="c-bottom"
-            d="M155.379 114.998H56.1824C52.7886 114.998 50.0374 117.75 50.0374 121.143V149.235C50.0374 152.628 52.7886 155.38 56.1824 155.38H155.379C158.773 155.38 161.524 152.628 161.524 149.235V121.143C161.524 117.75 158.773 114.998 155.379 114.998Z"
-            fill="white" />
-        <path class="s-1-left"
-            d="M222.761 0H194.669C191.276 0 188.524 2.75119 188.524 6.14495V90.4186C188.524 93.8123 191.276 96.5635 194.669 96.5635H222.761C226.154 96.5635 228.906 93.8123 228.906 90.4186V6.14495C228.906 2.75119 226.154 0 222.761 0Z"
-            fill="white" />
-        <path class="s-1-top"
-            d="M343.904 0H243.829C240.435 0 237.684 2.75119 237.684 6.14495V34.2362C237.684 37.6299 240.435 40.3811 243.829 40.3811H343.904C347.298 40.3811 350.049 37.6299 350.049 34.2362V6.14495C350.049 2.75119 347.298 0 343.904 0Z"
-            fill="white" />
-        <path class="s-1-center"
-            d="M291.233 57.0603H247.34C243.947 57.0603 241.195 59.8115 241.195 63.2053V91.2965C241.195 94.6902 243.947 97.4414 247.34 97.4414H291.233C294.627 97.4414 297.378 94.6902 297.378 91.2965V63.2053C297.378 59.8115 294.627 57.0603 291.233 57.0603Z"
-            fill="white" />
-        <path class="s-1-right"
-            d="M343.904 57.0603H315.813C312.419 57.0603 309.668 59.8115 309.668 63.2053V149.235C309.668 152.628 312.419 155.38 315.813 155.38H343.904C347.298 155.38 350.049 152.628 350.049 149.235V63.2053C350.049 59.8115 347.298 57.0603 343.904 57.0603Z"
-            fill="white" />
-        <path class="s-1-bottom"
-            d="M294.744 114.998H194.669C191.276 114.998 188.524 117.75 188.524 121.143V149.235C188.524 152.628 191.276 155.38 194.669 155.38H294.744C298.138 155.38 300.889 152.628 300.889 149.235V121.143C300.889 117.75 298.138 114.998 294.744 114.998Z"
-            fill="white" />
-        <path class="s-2-left"
-            d="M411.285 0H383.194C379.8 0 377.049 2.75119 377.049 6.14495V90.4186C377.049 93.8123 379.8 96.5635 383.194 96.5635H411.285C414.679 96.5635 417.43 93.8123 417.43 90.4186V6.14495C417.43 2.75119 414.679 0 411.285 0Z"
-            fill="white" />
-        <path class="s-2-top"
-            d="M532.428 0H432.353C428.96 0 426.208 2.75119 426.208 6.14495V34.2362C426.208 37.6299 428.96 40.3811 432.353 40.3811H532.428C535.822 40.3811 538.573 37.6299 538.573 34.2362V6.14495C538.573 2.75119 535.822 0 532.428 0Z"
-            fill="white" />
-        <path class="s-2-center"
-            d="M479.757 57.0603H435.865C432.471 57.0603 429.72 59.8115 429.72 63.2053V91.2965C429.72 94.6902 432.471 97.4414 435.865 97.4414H479.757C483.151 97.4414 485.902 94.6902 485.902 91.2965V63.2053C485.902 59.8115 483.151 57.0603 479.757 57.0603Z"
-            fill="white" />
-        <path class="s-2-right"
-            d="M532.428 57.0603H504.337C500.943 57.0603 498.192 59.8115 498.192 63.2053V149.235C498.192 152.628 500.943 155.38 504.337 155.38H532.428C535.822 155.38 538.573 152.628 538.573 149.235V63.2053C538.573 59.8115 535.822 57.0603 532.428 57.0603Z"
-            fill="white" />
-        <path class="s-2-bottom"
-            d="M483.269 114.998H383.194C379.8 114.998 377.049 117.75 377.049 121.143V149.235C377.049 152.628 379.8 155.38 383.194 155.38H483.269C486.663 155.38 489.414 152.628 489.414 149.235V121.143C489.414 117.75 486.663 114.998 483.269 114.998Z"
-            fill="white" />
-        <path class="d-top"
-            d="M105.342 180.38H6.14495C2.75119 180.38 0 183.131 0 186.524V214.616C0 218.009 2.75119 220.761 6.14495 220.761H105.342C108.736 220.761 111.487 218.009 111.487 214.616V186.524C111.487 183.131 108.736 180.38 105.342 180.38Z"
-            fill="white" />
-        <path class="d-right"
-            d="M155.379 180.38H127.288C123.894 180.38 121.143 183.131 121.143 186.524V281.332C121.143 284.726 123.894 287.477 127.288 287.477H155.379C158.773 287.477 161.524 284.726 161.524 281.332V186.524C161.524 183.131 158.773 180.38 155.379 180.38Z"
-            fill="white" />
-        <path class="d-left"
-            d="M34.2362 228.661H6.14495C2.75119 228.661 0 231.412 0 234.806V329.614C0 333.008 2.75119 335.759 6.14495 335.759H34.2362C37.6299 335.759 40.3811 333.008 40.3811 329.614V234.806C40.3811 231.412 37.6299 228.661 34.2362 228.661Z"
-            fill="white" />
-        <path class="d-bottom"
-            d="M155.379 295.378H56.1824C52.7886 295.378 50.0374 298.129 50.0374 301.523V329.614C50.0374 333.008 52.7886 335.759 56.1824 335.759H155.379C158.773 335.759 161.524 333.008 161.524 329.614V301.523C161.524 298.129 158.773 295.378 155.379 295.378Z"
-            fill="white" />
-        <path class="a-top"
-            d="M294.744 180.38H194.669C191.276 180.38 188.524 183.131 188.524 186.524V214.616C188.524 218.009 191.276 220.761 194.669 220.761H294.744C298.138 220.761 300.889 218.009 300.889 214.616V186.524C300.889 183.131 298.138 180.38 294.744 180.38Z"
-            fill="white" />
-        <path class="a-right"
-            d="M343.904 180.38H315.813C312.419 180.38 309.668 183.131 309.668 186.524V329.614C309.668 333.008 312.419 335.759 315.813 335.759H343.904C347.298 335.759 350.049 333.008 350.049 329.614V186.524C350.049 183.131 347.298 180.38 343.904 180.38Z"
-            fill="white" />
-        <path class="a-left"
-            d="M222.761 228.661H194.669C191.276 228.661 188.524 231.412 188.524 234.806V329.614C188.524 333.008 191.276 335.759 194.669 335.759H222.761C226.154 335.759 228.906 333.008 228.906 329.614V234.806C228.906 231.412 226.154 228.661 222.761 228.661Z"
-            fill="white" />
-        <path class="a-center"
-            d="M293.866 245.34H249.974C246.58 245.34 243.829 248.092 243.829 251.485V279.577C243.829 282.97 246.58 285.722 249.974 285.722H293.866C297.26 285.722 300.011 282.97 300.011 279.577V251.485C300.011 248.092 297.26 245.34 293.866 245.34Z"
-            fill="white" />
-        <path class="y-left"
-            d="M411.285 180.38H383.194C379.8 180.38 377.049 183.131 377.049 186.524V270.798C377.049 274.192 379.8 276.943 383.194 276.943H411.285C414.679 276.943 417.43 274.192 417.43 270.798V186.524C417.43 183.131 414.679 180.38 411.285 180.38Z"
-            fill="white" />
-        <path class="y-right"
-            d="M532.428 180.38H504.337C500.943 180.38 498.192 183.131 498.192 186.524V329.614C498.192 333.008 500.943 335.759 504.337 335.759H532.428C535.822 335.759 538.573 333.008 538.573 329.614V186.524C538.573 183.131 535.822 180.38 532.428 180.38Z"
-            fill="white" />
-        <path class="y-center"
-            d="M483.269 236.562H439.376C435.982 236.562 433.231 239.313 433.231 242.707V270.798C433.231 274.192 435.982 276.943 439.376 276.943H483.269C486.663 276.943 489.414 274.192 489.414 270.798V242.707C489.414 239.313 486.663 236.562 483.269 236.562Z"
-            fill="white" />
-        <path class="y-bottom"
-            d="M483.269 295.378H401.629C398.235 295.378 395.484 298.129 395.484 301.523V329.614C395.484 333.008 398.235 335.759 401.629 335.759H483.269C486.662 335.759 489.414 333.008 489.414 329.614V301.523C489.414 298.129 486.662 295.378 483.269 295.378Z"
-            fill="white" />
-    </svg>
+                                <path class="c-top"
+                                      d="M155.379 0H6.14495C2.75119 0 0 2.75119 0 6.14495V34.2362C0 37.6299 2.75119 40.3811 6.14495 40.3811H155.379C158.773 40.3811 161.524 37.6299 161.524 34.2362V6.14495C161.524 2.75119 158.773 0 155.379 0Z"
+                                      fill="white" />
+                                <path class="c-left"
+                                      d="M34.2362 48.2817H6.14495C2.75119 48.2817 0 51.0329 0 54.4267V149.235C0 152.628 2.75119 155.379 6.14495 155.379H34.2362C37.6299 155.379 40.3811 152.628 40.3811 149.235V54.4267C40.3811 51.0329 37.6299 48.2817 34.2362 48.2817Z"
+                                      fill="white" />
+                                <path class="c-bottom"
+                                      d="M155.379 114.998H56.1824C52.7886 114.998 50.0374 117.75 50.0374 121.143V149.235C50.0374 152.628 52.7886 155.38 56.1824 155.38H155.379C158.773 155.38 161.524 152.628 161.524 149.235V121.143C161.524 117.75 158.773 114.998 155.379 114.998Z"
+                                      fill="white" />
+                                <path class="s-1-left"
+                                      d="M222.761 0H194.669C191.276 0 188.524 2.75119 188.524 6.14495V90.4186C188.524 93.8123 191.276 96.5635 194.669 96.5635H222.761C226.154 96.5635 228.906 93.8123 228.906 90.4186V6.14495C228.906 2.75119 226.154 0 222.761 0Z"
+                                      fill="white" />
+                                <path class="s-1-top"
+                                      d="M343.904 0H243.829C240.435 0 237.684 2.75119 237.684 6.14495V34.2362C237.684 37.6299 240.435 40.3811 243.829 40.3811H343.904C347.298 40.3811 350.049 37.6299 350.049 34.2362V6.14495C350.049 2.75119 347.298 0 343.904 0Z"
+                                      fill="white" />
+                                <path class="s-1-center"
+                                      d="M291.233 57.0603H247.34C243.947 57.0603 241.195 59.8115 241.195 63.2053V91.2965C241.195 94.6902 243.947 97.4414 247.34 97.4414H291.233C294.627 97.4414 297.378 94.6902 297.378 91.2965V63.2053C297.378 59.8115 294.627 57.0603 291.233 57.0603Z"
+                                      fill="white" />
+                                <path class="s-1-right"
+                                      d="M343.904 57.0603H315.813C312.419 57.0603 309.668 59.8115 309.668 63.2053V149.235C309.668 152.628 312.419 155.38 315.813 155.38H343.904C347.298 155.38 350.049 152.628 350.049 149.235V63.2053C350.049 59.8115 347.298 57.0603 343.904 57.0603Z"
+                                      fill="white" />
+                                <path class="s-1-bottom"
+                                      d="M294.744 114.998H194.669C191.276 114.998 188.524 117.75 188.524 121.143V149.235C188.524 152.628 191.276 155.38 194.669 155.38H294.744C298.138 155.38 300.889 152.628 300.889 149.235V121.143C300.889 117.75 298.138 114.998 294.744 114.998Z"
+                                      fill="white" />
+                                <path class="s-2-left"
+                                      d="M411.285 0H383.194C379.8 0 377.049 2.75119 377.049 6.14495V90.4186C377.049 93.8123 379.8 96.5635 383.194 96.5635H411.285C414.679 96.5635 417.43 93.8123 417.43 90.4186V6.14495C417.43 2.75119 414.679 0 411.285 0Z"
+                                      fill="white" />
+                                <path class="s-2-top"
+                                      d="M532.428 0H432.353C428.96 0 426.208 2.75119 426.208 6.14495V34.2362C426.208 37.6299 428.96 40.3811 432.353 40.3811H532.428C535.822 40.3811 538.573 37.6299 538.573 34.2362V6.14495C538.573 2.75119 535.822 0 532.428 0Z"
+                                      fill="white" />
+                                <path class="s-2-center"
+                                      d="M479.757 57.0603H435.865C432.471 57.0603 429.72 59.8115 429.72 63.2053V91.2965C429.72 94.6902 432.471 97.4414 435.865 97.4414H479.757C483.151 97.4414 485.902 94.6902 485.902 91.2965V63.2053C485.902 59.8115 483.151 57.0603 479.757 57.0603Z"
+                                      fill="white" />
+                                <path class="s-2-right"
+                                      d="M532.428 57.0603H504.337C500.943 57.0603 498.192 59.8115 498.192 63.2053V149.235C498.192 152.628 500.943 155.38 504.337 155.38H532.428C535.822 155.38 538.573 152.628 538.573 149.235V63.2053C538.573 59.8115 535.822 57.0603 532.428 57.0603Z"
+                                      fill="white" />
+                                <path class="s-2-bottom"
+                                      d="M483.269 114.998H383.194C379.8 114.998 377.049 117.75 377.049 121.143V149.235C377.049 152.628 379.8 155.38 383.194 155.38H483.269C486.663 155.38 489.414 152.628 489.414 149.235V121.143C489.414 117.75 486.663 114.998 483.269 114.998Z"
+                                      fill="white" />
+                                <path class="d-top"
+                                      d="M105.342 180.38H6.14495C2.75119 180.38 0 183.131 0 186.524V214.616C0 218.009 2.75119 220.761 6.14495 220.761H105.342C108.736 220.761 111.487 218.009 111.487 214.616V186.524C111.487 183.131 108.736 180.38 105.342 180.38Z"
+                                      fill="white" />
+                                <path class="d-right"
+                                      d="M155.379 180.38H127.288C123.894 180.38 121.143 183.131 121.143 186.524V281.332C121.143 284.726 123.894 287.477 127.288 287.477H155.379C158.773 287.477 161.524 284.726 161.524 281.332V186.524C161.524 183.131 158.773 180.38 155.379 180.38Z"
+                                      fill="white" />
+                                <path class="d-left"
+                                      d="M34.2362 228.661H6.14495C2.75119 228.661 0 231.412 0 234.806V329.614C0 333.008 2.75119 335.759 6.14495 335.759H34.2362C37.6299 335.759 40.3811 333.008 40.3811 329.614V234.806C40.3811 231.412 37.6299 228.661 34.2362 228.661Z"
+                                      fill="white" />
+                                <path class="d-bottom"
+                                      d="M155.379 295.378H56.1824C52.7886 295.378 50.0374 298.129 50.0374 301.523V329.614C50.0374 333.008 52.7886 335.759 56.1824 335.759H155.379C158.773 335.759 161.524 333.008 161.524 329.614V301.523C161.524 298.129 158.773 295.378 155.379 295.378Z"
+                                      fill="white" />
+                                <path class="a-top"
+                                      d="M294.744 180.38H194.669C191.276 180.38 188.524 183.131 188.524 186.524V214.616C188.524 218.009 191.276 220.761 194.669 220.761H294.744C298.138 220.761 300.889 218.009 300.889 214.616V186.524C300.889 183.131 298.138 180.38 294.744 180.38Z"
+                                      fill="white" />
+                                <path class="a-right"
+                                      d="M343.904 180.38H315.813C312.419 180.38 309.668 183.131 309.668 186.524V329.614C309.668 333.008 312.419 335.759 315.813 335.759H343.904C347.298 335.759 350.049 333.008 350.049 329.614V186.524C350.049 183.131 347.298 180.38 343.904 180.38Z"
+                                      fill="white" />
+                                <path class="a-left"
+                                      d="M222.761 228.661H194.669C191.276 228.661 188.524 231.412 188.524 234.806V329.614C188.524 333.008 191.276 335.759 194.669 335.759H222.761C226.154 335.759 228.906 333.008 228.906 329.614V234.806C228.906 231.412 226.154 228.661 222.761 228.661Z"
+                                      fill="white" />
+                                <path class="a-center"
+                                      d="M293.866 245.34H249.974C246.58 245.34 243.829 248.092 243.829 251.485V279.577C243.829 282.97 246.58 285.722 249.974 285.722H293.866C297.26 285.722 300.011 282.97 300.011 279.577V251.485C300.011 248.092 297.26 245.34 293.866 245.34Z"
+                                      fill="white" />
+                                <path class="y-left"
+                                      d="M411.285 180.38H383.194C379.8 180.38 377.049 183.131 377.049 186.524V270.798C377.049 274.192 379.8 276.943 383.194 276.943H411.285C414.679 276.943 417.43 274.192 417.43 270.798V186.524C417.43 183.131 414.679 180.38 411.285 180.38Z"
+                                      fill="white" />
+                                <path class="y-right"
+                                      d="M532.428 180.38H504.337C500.943 180.38 498.192 183.131 498.192 186.524V329.614C498.192 333.008 500.943 335.759 504.337 335.759H532.428C535.822 335.759 538.573 333.008 538.573 329.614V186.524C538.573 183.131 535.822 180.38 532.428 180.38Z"
+                                      fill="white" />
+                                <path class="y-center"
+                                      d="M483.269 236.562H439.376C435.982 236.562 433.231 239.313 433.231 242.707V270.798C433.231 274.192 435.982 276.943 439.376 276.943H483.269C486.663 276.943 489.414 274.192 489.414 270.798V242.707C489.414 239.313 486.663 236.562 483.269 236.562Z"
+                                      fill="white" />
+                                <path class="y-bottom"
+                                      d="M483.269 295.378H401.629C398.235 295.378 395.484 298.129 395.484 301.523V329.614C395.484 333.008 398.235 335.759 401.629 335.759H483.269C486.662 335.759 489.414 333.008 489.414 329.614V301.523C489.414 298.129 486.662 295.378 483.269 295.378Z"
+                                      fill="white" />
+                            </svg>
                         </div>
-                        }
+                    }
                 </div>
                 <hr />
                 <a class="Speakers" href="@(item.Speakers.Count > 0 ? item.Speakers[0].Link : "default")" target="_blank">
                     <img class="avatar" src="@(item.Speakers.Count > 0 ? item.Speakers[0].Avatar : "default")" />
                     <div>
                         <h3 class="talks-title">@item.Title</h3>
-                        @if(item.Speakers.Count > 0)
+                        @if (item.Speakers.Count > 0)
                         {
-                        <p class="name">@item.Speakers[0].Name</p>
-                        } else{
-                        <p class="name">geen data gevonden</p>
+                            <p class="name">@item.Speakers[0].Name</p>
+                        }
+                        else
+                        {
+                            <p class="name">geen data gevonden</p>
                         }
                     </div>
                 </a>
             </article>
-            }
-        </section>
-    </div>
-
+        }
+    </section>
 </main>
+
+
+<dialog id="myDialog">
+    <div>
+        <header>
+            <h1>Stats</h1>
+            <button @onclick=@(() => Close()) class="close">
+                <svg xmlns="http://www.w3.org/2000/svg"
+                     width="24"
+                     height="24"
+                     viewBox="0 0 24 24"
+                     fill="none">
+                    <path d="M20 20L4 4M20 4L4 20"
+                          stroke="#BCBCBC"
+                          stroke-width="2"
+                          stroke-linecap="round" />
+                </svg>
+            </button>
+        </header>
+        <main>
+            <p>
+                <span>
+                    <b>aanwezigen</b>
+                </span>
+                <span>
+                        <b>x bezoekers</b>
+                </span>
+            </p>
+
+            <p>
+                <span>
+                    NL
+                </span>
+                <span>
+                    x bezoekers
+                </span>
+            </p>
+
+        </main>
+        <footer>
+            <button class="ghost" @onclick=@Close>Close</button>
+        </footer>
+    </div>
+</dialog>

@@ -11,8 +11,8 @@
       "RelativeMoniker": "D:0:0:{844AEC96-E57C-443D-8504-723A0EE312C4}|BlazorApp\\BlazorApp.csproj|solutionrelative:blazorapp\\components\\pages\\home.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{844AEC96-E57C-443D-8504-723A0EE312C4}|BlazorApp\\BlazorApp.csproj|c:\\users\\sasch\\documents\\github\\css-day\\blazorapp\\components\\layout\\mainlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{844AEC96-E57C-443D-8504-723A0EE312C4}|BlazorApp\\BlazorApp.csproj|solutionrelative:blazorapp\\components\\layout\\mainlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{844AEC96-E57C-443D-8504-723A0EE312C4}|BlazorApp\\BlazorApp.csproj|c:\\users\\sasch\\documents\\github\\css-day\\blazorapp\\components\\pages\\home.razor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{844AEC96-E57C-443D-8504-723A0EE312C4}|BlazorApp\\BlazorApp.csproj|solutionrelative:blazorapp\\components\\pages\\home.razor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{844AEC96-E57C-443D-8504-723A0EE312C4}|BlazorApp\\BlazorApp.csproj|c:\\users\\sasch\\documents\\github\\css-day\\blazorapp\\wwwroot\\script.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
@@ -23,8 +23,16 @@
       "RelativeMoniker": "D:0:0:{844AEC96-E57C-443D-8504-723A0EE312C4}|BlazorApp\\BlazorApp.csproj|solutionrelative:blazorapp\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{844AEC96-E57C-443D-8504-723A0EE312C4}|BlazorApp\\BlazorApp.csproj|c:\\users\\sasch\\documents\\github\\css-day\\blazorapp\\components\\pages\\home.razor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{844AEC96-E57C-443D-8504-723A0EE312C4}|BlazorApp\\BlazorApp.csproj|solutionrelative:blazorapp\\components\\pages\\home.razor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{844AEC96-E57C-443D-8504-723A0EE312C4}|BlazorApp\\BlazorApp.csproj|c:\\users\\sasch\\documents\\github\\css-day\\blazorapp\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{844AEC96-E57C-443D-8504-723A0EE312C4}|BlazorApp\\BlazorApp.csproj|solutionrelative:blazorapp\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{844AEC96-E57C-443D-8504-723A0EE312C4}|BlazorApp\\BlazorApp.csproj|c:\\users\\sasch\\documents\\github\\css-day\\blazorapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{844AEC96-E57C-443D-8504-723A0EE312C4}|BlazorApp\\BlazorApp.csproj|solutionrelative:blazorapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{844AEC96-E57C-443D-8504-723A0EE312C4}|BlazorApp\\BlazorApp.csproj|c:\\users\\sasch\\documents\\github\\css-day\\blazorapp\\components\\layout\\mainlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{844AEC96-E57C-443D-8504-723A0EE312C4}|BlazorApp\\BlazorApp.csproj|solutionrelative:blazorapp\\components\\layout\\mainlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{844AEC96-E57C-443D-8504-723A0EE312C4}|BlazorApp\\BlazorApp.csproj|c:\\users\\sasch\\documents\\github\\css-day\\blazorapp\\data\\data.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -41,10 +49,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{844AEC96-E57C-443D-8504-723A0EE312C4}|BlazorApp\\BlazorApp.csproj|c:\\users\\sasch\\documents\\github\\css-day\\blazorapp\\components\\routes.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{844AEC96-E57C-443D-8504-723A0EE312C4}|BlazorApp\\BlazorApp.csproj|solutionrelative:blazorapp\\components\\routes.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{844AEC96-E57C-443D-8504-723A0EE312C4}|BlazorApp\\BlazorApp.csproj|c:\\users\\sasch\\documents\\github\\css-day\\blazorapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{844AEC96-E57C-443D-8504-723A0EE312C4}|BlazorApp\\BlazorApp.csproj|solutionrelative:blazorapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{844AEC96-E57C-443D-8504-723A0EE312C4}|BlazorApp\\BlazorApp.csproj|c:\\users\\sasch\\documents\\github\\css-day\\blazorapp\\components\\pages\\weather.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -80,7 +84,7 @@
               "RelativeDocumentMoniker": "BlazorApp\\Components\\Pages\\Home.razor",
               "ToolTip": "C:\\Users\\sasch\\Documents\\GitHub\\CSS-Day\\BlazorApp\\Components\\Pages\\Home.razor",
               "RelativeToolTip": "BlazorApp\\Components\\Pages\\Home.razor",
-              "ViewState": "AQIAAAkAAAAAAAAAAAAAAKwAAAAbAAAA",
+              "ViewState": "AQIAAF4AAAAAAAAAAAAAANoBAAAtAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-04-22T15:32:07.153Z",
               "IsPinned": true,
@@ -94,7 +98,7 @@
               "RelativeDocumentMoniker": "BlazorApp\\wwwroot\\app.css",
               "ToolTip": "C:\\Users\\sasch\\Documents\\GitHub\\CSS-Day\\BlazorApp\\wwwroot\\app.css",
               "RelativeToolTip": "BlazorApp\\wwwroot\\app.css",
-              "ViewState": "AQIAACMCAAAAAAAAAAAEwDYCAAApAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
               "WhenOpened": "2024-04-22T15:30:42.929Z",
               "IsPinned": true,
@@ -108,10 +112,36 @@
               "RelativeDocumentMoniker": "BlazorApp\\wwwroot\\script.js",
               "ToolTip": "C:\\Users\\sasch\\Documents\\GitHub\\CSS-Day\\BlazorApp\\wwwroot\\script.js",
               "RelativeToolTip": "BlazorApp\\wwwroot\\script.js",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAGAAAA",
+              "ViewState": "AQIAABgAAAAAAAAAAAAkwCkAAAADAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
               "WhenOpened": "2024-04-22T15:45:08.436Z",
-              "IsPinned": true
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Home.razor.cs",
+              "DocumentMoniker": "C:\\Users\\sasch\\Documents\\GitHub\\CSS-Day\\BlazorApp\\Components\\Pages\\Home.razor.cs",
+              "RelativeDocumentMoniker": "BlazorApp\\Components\\Pages\\Home.razor.cs",
+              "ToolTip": "C:\\Users\\sasch\\Documents\\GitHub\\CSS-Day\\BlazorApp\\Components\\Pages\\Home.razor.cs",
+              "RelativeToolTip": "BlazorApp\\Components\\Pages\\Home.razor.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAASwBsAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-24T06:31:48.89Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "appsettings.Development.json",
+              "DocumentMoniker": "C:\\Users\\sasch\\Documents\\GitHub\\CSS-Day\\BlazorApp\\appsettings.Development.json",
+              "RelativeDocumentMoniker": "BlazorApp\\appsettings.Development.json",
+              "ToolTip": "C:\\Users\\sasch\\Documents\\GitHub\\CSS-Day\\BlazorApp\\appsettings.Development.json",
+              "RelativeToolTip": "BlazorApp\\appsettings.Development.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAnAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-04-27T12:57:21.315Z"
             },
             {
               "$type": "Document",
@@ -127,19 +157,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Home.razor.cs",
-              "DocumentMoniker": "C:\\Users\\sasch\\Documents\\GitHub\\CSS-Day\\BlazorApp\\Components\\Pages\\Home.razor.cs",
-              "RelativeDocumentMoniker": "BlazorApp\\Components\\Pages\\Home.razor.cs",
-              "ToolTip": "C:\\Users\\sasch\\Documents\\GitHub\\CSS-Day\\BlazorApp\\Components\\Pages\\Home.razor.cs",
-              "RelativeToolTip": "BlazorApp\\Components\\Pages\\Home.razor.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABcAAAAuAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-24T06:31:48.89Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 13,
               "Title": "BlazorApp",
               "DocumentMoniker": "C:\\Users\\sasch\\Documents\\GitHub\\CSS-Day\\BlazorApp\\BlazorApp.csproj",
               "RelativeDocumentMoniker": "BlazorApp\\BlazorApp.csproj",
@@ -150,7 +168,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 12,
               "Title": "Weather.razor",
               "DocumentMoniker": "C:\\Users\\sasch\\Documents\\GitHub\\CSS-Day\\BlazorApp\\Components\\Pages\\Weather.razor",
               "RelativeDocumentMoniker": "BlazorApp\\Components\\Pages\\Weather.razor",
@@ -162,7 +180,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 9,
               "Title": "App.razor",
               "DocumentMoniker": "C:\\Users\\sasch\\Documents\\GitHub\\CSS-Day\\BlazorApp\\Components\\App.razor",
               "RelativeDocumentMoniker": "BlazorApp\\Components\\App.razor",
@@ -174,19 +192,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 6,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\sasch\\Documents\\GitHub\\CSS-Day\\BlazorApp\\Program.cs",
               "RelativeDocumentMoniker": "BlazorApp\\Program.cs",
               "ToolTip": "C:\\Users\\sasch\\Documents\\GitHub\\CSS-Day\\BlazorApp\\Program.cs",
               "RelativeToolTip": "BlazorApp\\Program.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABgAAAAjAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABkAAAAKAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-22T16:45:57.088Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 7,
               "Title": "MainLayout.razor",
               "DocumentMoniker": "C:\\Users\\sasch\\Documents\\GitHub\\CSS-Day\\BlazorApp\\Components\\Layout\\MainLayout.razor",
               "RelativeDocumentMoniker": "BlazorApp\\Components\\Layout\\MainLayout.razor",
@@ -194,12 +212,11 @@
               "RelativeToolTip": "BlazorApp\\Components\\Layout\\MainLayout.razor",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-04-22T15:30:24.585Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-22T15:30:24.585Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 8,
               "Title": "Data.cs",
               "DocumentMoniker": "C:\\Users\\sasch\\Documents\\GitHub\\CSS-Day\\BlazorApp\\Data\\Data.cs",
               "RelativeDocumentMoniker": "BlazorApp\\Data\\Data.cs",
@@ -211,7 +228,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 11,
               "Title": "Routes.razor",
               "DocumentMoniker": "C:\\Users\\sasch\\Documents\\GitHub\\CSS-Day\\BlazorApp\\Components\\Routes.razor",
               "RelativeDocumentMoniker": "BlazorApp\\Components\\Routes.razor",
@@ -223,7 +240,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 14,
               "Title": "Error.razor",
               "DocumentMoniker": "C:\\Users\\sasch\\Documents\\GitHub\\CSS-Day\\BlazorApp\\Components\\Pages\\Error.razor",
               "RelativeDocumentMoniker": "BlazorApp\\Components\\Pages\\Error.razor",
@@ -235,7 +252,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 10,
               "Title": "Counter.razor",
               "DocumentMoniker": "C:\\Users\\sasch\\Documents\\GitHub\\CSS-Day\\BlazorApp\\Components\\Pages\\Counter.razor",
               "RelativeDocumentMoniker": "BlazorApp\\Components\\Pages\\Counter.razor",
@@ -247,7 +264,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 15,
               "Title": "NavMenu.razor",
               "DocumentMoniker": "C:\\Users\\sasch\\Documents\\GitHub\\CSS-Day\\BlazorApp\\Components\\Layout\\NavMenu.razor",
               "RelativeDocumentMoniker": "BlazorApp\\Components\\Layout\\NavMenu.razor",
